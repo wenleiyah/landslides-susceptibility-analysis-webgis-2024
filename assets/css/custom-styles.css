@@ -93,3 +93,25 @@
 }
 
 /*Add your new styles after this line*/
+
+.circular-button {
+    display: inline-block;
+    padding: 1em; 
+    text-align: center;
+    text-decoration: none;
+    border-radius: 50%;
+    border: 2px solid #ffffff; 
+    background-color: #9797978e; 
+    color: #ffffff; 
+    width: 6em; 
+    height: 6em; 
+    line-height: 1m; 
+    font-size: 1em; 
+    font-weight: bold;
+    cursor: pointer; 
+    margin-top: 200px
+}
+
+.circular-button:hover {
+    background-color: #555555; 
+}
