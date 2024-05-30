@@ -152,6 +152,12 @@ input, select, textarea {
 		letter-spacing: 0.025em;
 	}
 
+	h4 {
+		font-size: 1em;
+		letter-spacing: 0.01em;
+	}
+
+
 	sub {
 		font-size: 0.8em;
 		position: relative;
@@ -320,6 +326,11 @@ input, select, textarea {
 		.row > .col-4 {
 			width: 33.33333%;
 		}
+
+		.row > .col-4.low {
+			width: 33.33333%;
+		}
+
 
 		.row > .off-4 {
 			margin-left: 33.33333%;
@@ -1879,6 +1890,13 @@ input, select, textarea {
 				display: block;
 				width: 100%;
 			}
+		
+		.image.output{
+				display: block;
+				width: 100%;
+				margin: 0 0 2em 0;
+		}
+
 
 /* Icon */
 
@@ -1952,12 +1970,12 @@ input, select, textarea {
 					background: #829bc9;
 				}
 
-			.icon.circle.fa-google-plus-g {
+			.icon.circle.fa-envelope {
 				background: #db6b67;
 				color: #fff;
 			}
 
-				.icon.circle.fa-google-plus-g:hover {
+				.icon.circle.fa-envelope:hover {
 					background: #df7b77;
 				}
 
@@ -1970,7 +1988,7 @@ input, select, textarea {
 					background: #e1b89b;
 				}
 
-			.icon.circle.fa-dribbble {
+			.icon.circle.fa-linkedin{
 				background: #da83ae;
 				color: #fff;
 			}
@@ -2152,6 +2170,7 @@ input, select, textarea {
 		text-align: center;
 		text-decoration: none;
 		text-transform: uppercase;
+		border-radius: 12px;
 	}
 
 		input[type="button"]:hover,
@@ -2168,8 +2187,8 @@ input, select, textarea {
 		input[type="reset"].primary,
 		button.primary,
 		.button.primary {
-			background: #83d3c9;
-			border-color: #83d3c9;
+			background: #4f8d59;
+			border-color: #4f8d59;
 			color: #fff !important;
 		}
 
@@ -2181,6 +2200,20 @@ input, select, textarea {
 				background: #96dad1 !important;
 				border-color: #96dad1 !important;
 			}
+			
+			
+		input[type="button"].head,
+		input[type="submit"].head,
+		input[type="reset"].head,
+		button.head,
+		.button.head {
+			background: #3f6e47;
+			border-color: #3f6e47;
+			color: #fff !important;
+			margin-bottom: 100px;
+			margin-top: 200px;
+		}
+
 
 		input[type="button"].fit,
 		input[type="submit"].fit,
@@ -2188,6 +2221,7 @@ input, select, textarea {
 		button.fit,
 		.button.fit {
 			width: 100%;
+			margin-bottom: 100px;
 		}
 
 		input[type="button"].small,
@@ -2619,7 +2653,7 @@ input, select, textarea {
 	#cta {
 		background-attachment: scroll, scroll, scroll, fixed;
 		background-color: #645862;
-		background-image: url("images/light-tl.svg"), url("images/light-tr.svg"), url("images/overlay.png"), url("../../images/banner.jpg");
+		background-image: url("images/light-tl.svg"), url("images/light-tr.svg"), url("images/overlay.png"), url("../../images/valley.jpg");
 		background-position: top left, top right, top left, bottom center;
 		background-repeat: no-repeat, no-repeat, repeat, no-repeat;
 		background-size: 25em, 25em, auto, cover;
@@ -2918,6 +2952,7 @@ input, select, textarea {
 
 			.wrapper.style4 {
 				padding-bottom: 3em;
+
 			}
 
 		/* Main */
