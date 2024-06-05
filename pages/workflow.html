@@ -13,7 +13,10 @@
 		
 		<link rel="stylesheet" href="../assets/css/main.css" />
 		<link rel="stylesheet" href="../assets/css/custom-styles.css" />
+	    <!-- Modules are imported normally -->
+		<script type="module" src="../assets/js/static.js"></script>
 	</head>
+
 	<body class="left-sidebar is-preload">
 		<div id="page-wrapper">
 
@@ -36,79 +39,260 @@
 					<header class="special container">
 						<span class="icon solid fa-globe"></span>
 						<h2> <strong>Workflow</strong></h2>
-						<p>working pipeline <br>working pipeline</p>
+						<p>the data we are using and how we process the analysis</p>
 					</header>
+					<!-- Head image -->
 
-					<!-- One -->
+					<!-- Step 0 - Data Explaination -->
 						<div class="wrapper style4 container">
+							<div>
+								<img src="../images/result/site-hori-osm.png" alt="Site Area" class="image output"/>
+								<header>
+									<h3>Step 0 - Data Pronunciation</h3>
+								</header>
+							</div>
 
-							<!-- Content -->
-								<div class="content">
-									<div>
-										<a href="#" class="image featured"><img src="../images/pic04.jpg" alt="" /></a>
-										<header>
-											<h3>Dolore Amet Consequat</h3>
-										</header>
-										<p>Aliquam massa urna, imperdiet sit amet mi non, bibendum euismod est. Curabitur mi justo, tincidunt vel eros ullamcorper, porta cursus justo. Cras vel neque eros. Vestibulum diam quam, mollis at consectetur non, malesuada quis augue. Morbi tincidunt pretium interdum. Morbi mattis elementum orci, nec dictum massa. Morbi eu faucibus massa. Aliquam massa urna, imperdiet sit amet mi non, bibendum euismod est. Curabitur mi justo, tincidunt vel eros ullamcorper, porta cursus justo. Cras vel neque eros. Vestibulum diam.</p>
-										<p>Vestibulum diam quam, mollis at consectetur non, malesuada quis augue. Morbi tincidunt pretium interdum. Morbi mattis elementum orci, nec dictum porta cursus justo. Quisque ultricies lorem in ligula condimentum, et egestas turpis sagittis. Cras ac nunc urna. Nullam eget lobortis purus. Phasellus vitae tortor non est placerat tristique. Sed id sem et massa ornare pellentesque. Maecenas pharetra porta accumsan. </p>
-										<p>In vestibulum massa quis arcu lobortis tempus. Nam pretium arcu in odio vulputate luctus. Suspendisse euismod lorem eget lacinia fringilla. Sed sed felis justo. Nunc sodales elit in laoreet aliquam. Nam gravida, nisl sit amet iaculis porttitor, risus nisi rutrum metus, non hendrerit ipsum arcu tristique est.</p>
-									</div>
-								</div>
-
-						</div>
-
-					<!-- Two -->
-						<div class="wrapper style1 container special">
+							<!-- Row 1 NVDI&DUSAF -->
 							<div class="row">
-								<div class="col-4 col-12-narrower">
+								    <section class="col-4 col-12-narrower toggle-body">
+										<div class="toggle-title">
+											<span class="arrow">&#9205;</span> <strong>DUSAF (Digital Urban Surface Analysis Factors)</strong>
+										</div>
+										<p class="hidden indented-paragraph">
+											This is a toggleable paragraph. Click the button to show or hide this content.
+										</p>
 
-									<div>
-										<header>
-											<h3>This is Something</h3>
-										</header>
-										<p>Sed tristique purus vitae volutpat ultrices. Aliquam eu elit eget arcu commodo suscipit dolor nec nibh. Proin a ullamcorper elit, et sagittis turpis. Integer ut fermentum.</p>
-										<footer>
-											<ul class="buttons">
-												<li><a href="#" class="button small">Learn More</a></li>
-											</ul>
-										</footer>
+										<div class="toggle-title">
+											<span class="arrow">&#9205;</span> <strong>NDVI (Normalized Difference Vegetation Index)</strong>
+										</div>
+										<p class="hidden indented-paragraph">
+											Normalized Difference Vegetation Index (NDVI) is an indicator of the degree of greenness of a biome, which is not a physical attribute but is widely used to monitor ecosystems.
+										</p>
+									</section>
+
+									<section class="col-4 col-12-narrower">
+										<a href="../images/result/step1/DUSAF.png" class="image output">
+											<img src="../images/result/step1/DUSAF.png" alt="Site Area" class="image output"/>
+										</a>
+									</section>
+
+									<section class="col-4 col-12-narrower">
+										<a href="../images/result/step1/NVDI.png" class="image output">
+											<img src="../images/result/step1/NVDI.png" alt="Site Area" class="image output"/>
+										</a>
+									</section>
+							</div>
+
+							<!-- Row 2 Distance Characterization Data -->
+							<div class="row">
+								<div class="toggle-body">
+									<div class="toggle-title">
+										<span class="arrow">&#9205;</span> <strong>Distance Characterization Data</strong>
 									</div>
-
+									<p class="hidden indented-paragraph">
+										usually distance data for roads, river networks, geological faults. Rivers can cause erosion at the base of landslides. Roads, especially cars and trucks traveling over them, can create loads that slopes cannot handle.
+									</p>
 								</div>
-								<div class="col-4 col-12-narrower">
+								
+								<section class="col-4 col-12-narrower">
+									<a href="../images/result/step1/roads.png" class="image output">
+										<img src="../images/result/step1/roads.png" alt="Roads Buffer" class="image output"/>
+									</a>
+									<header style="text-align: center;margin-bottom: 20px;">
+										<p>Roads Buffer</p>
+									</header>
+								</section>
 
-									<div>
-										<header>
-											<h3>Also Something</h3>
-										</header>
-										<p>Sed tristique purus vitae volutpat ultrices. Aliquam eu elit eget arcu commodo suscipit dolor nec nibh. Proin a ullamcorper elit, et sagittis turpis. Integer ut fermentum.</p>
-										<footer>
-											<ul class="buttons">
-												<li><a href="#" class="button small">Learn More</a></li>
-											</ul>
-										</footer>
+								<section class="col-4 col-12-narrower">
+									<a href="../images/result/step1/rivers.png" class="image output">
+										<img src="../images/result/step1/rivers.png" alt="Rivers Buffer" class="image output"/>
+									</a>
+									<header style="text-align: center;margin-bottom: 20px;">
+										<p>Rivers Buffer</p>
+									</header>
+								</section>
+
+								<section class="col-4 col-12-narrower">
+									<a href="../images/result/step1/faults.png" class="image output">
+										<img src="../images/result/step1/faults.png" alt="Faults Buffer" class="image output"/>
+									</a>
+									<header style="text-align: center;margin-bottom: 20px;">
+										<p>Faults Buffer</p>
+									</header>
+								</section>
+							</div>
+
+							<!-- Row 3 DTM -->
+							<div class="row">
+									<section class="col-8 col-12-narrower toggle-body">
+										<div class="toggle-title">
+											<span class="arrow">&#9205;</span> <strong>DTM (Digital Terrain Model)</strong>
+										</div>
+										<p class="hidden indented-paragraph">
+											Raster data representing the surface of the terrain. Not only provides elevation information, but also used to calculate <strong>slope, aspect, plan and profile curvature, slope angle.</strong>
+										</p>
+
+										<div class="toggle-title">
+											<span class="arrow">&#9205;</span> <strong>Slope</strong>
+										</div>
+										<p class="hidden indented-paragraph">
+											The incline of a slope, represents how much elevation changes over a certain horizontal distance.
+										</p>
+
+										<div class="toggle-title">
+											<span class="arrow">&#9205;</span> <strong>Aspect</strong>
+										</div>
+										<p class="hidden indented-paragraph">
+											Describe the direction of a slop. how much elevation changes over a certain horizontal distance.
+										</p>
+
+										<div class="toggle-title">
+											<span class="arrow">&#9205;</span> <strong>Plan and profile curvature</strong>
+										</div>
+										<p class="hidden indented-paragraph">
+											Plan Curvature is the curvature of the surface in a horizontal plane. 
+											It indicates the rate of change of aspect along a contour line and affects water flow and erosion. 
+											Profile curvature is the curvature of the surface in a vertical plane. 
+											It reflects the rate of change of slope along a flow line and influences the acceleration and deceleration of water flow.
+										</p>
+
+										<div class="toggle-title">
+											<span class="arrow">&#9205;</span> <strong>Slope Angle</strong>
+										</div>
+										<p class="hidden indented-paragraph">
+											The angle between the slope surface and the horizontal plane, measured in degrees. It quantifies the steepness of the slope.
+										</p>
+									</section>
+
+									<section class="col-4 col-12-narrower">
+										<a href="../images/result/step1/DTM.png" class="image output">
+											<img src="../images/result/step1/DTM.png" alt="DTM" class="image output"/>
+										</a>
+									</section>
+							</div>
+
+							<!-- Row 4 Landslides inventory -->
+							<div class="row">
+								<section class="col-8 col-12-narrower">
+									<div class="toggle-title">
+										<span class="arrow">&#9205;</span> <strong>Landslides Inventory</strong>
 									</div>
+									<p class="hidden indented-paragraph">
+										Includes the type, time of occurrence, activity status and depth of landslides, using data from the IFFI catalog, with each landslide represented as a point, surface or line.  <strong>slope, aspect, plan and profile curvature, slope angle.</strong>
+									</p>
+								</section>
 
-								</div>
-								<div class="col-4 col-12-narrower">
-
-									<div>
-										<header>
-											<h3>Probably Something</h3>
-										</header>
-										<p>Sed tristique purus vitae volutpat ultrices. Aliquam eu elit eget arcu commodo suscipit dolor nec nibh. Proin a ullamcorper elit, et sagittis turpis. Integer ut fermentum.</p>
-										<footer>
-											<ul class="buttons">
-												<li><a href="#" class="button small">Learn More</a></li>
-											</ul>
-										</footer>
-									</div>
-
-								</div>
+								<section class="col-4 col-12-narrower">
+									<a href="../images/result/step1/LZ_inventory.png" class="image output">
+										<img src="../images/result/step1/LZ_inventory.png" alt="DTM" class="image output"/>
+									</a>
+								</section>
 							</div>
 						</div>
 
-					<!-- Two -->
+					<!-- Step 1 - Data Processing -->
+						<div class="wrapper style3 container special">
+							<header>
+								<h3>Step 1 - Data Processing</h3>
+							</header>
+
+							<!-- Row 1 - Extracting Data from DTM -->
+							<div class="row">
+								<section class="col-8 col-12-narrower toggle-body">
+									<header>
+										<span class="arrow"> &#8226;</span><strong>QGIS Analysis: Slope, Aspect, Plan Curvature and Profile Curvature </strong>
+										<p><em>by using slope. aspect and curvature tool to do inital data process  </em></p>
+									</header>
+
+									<div class="toggle-title">
+										<span class="arrow">&#9205;</span> <strong>Slope</strong>
+									</div>
+									<p class="hidden indented-paragraph">
+										The incline of a slope, represents how much elevation changes over a certain horizontal distance.
+									</p>
+
+									<div class="toggle-title">
+										<span class="arrow">&#9205;</span> <strong>Aspect</strong>
+									</div>
+									<p class="hidden indented-paragraph">
+										Describe the direction of a slop. how much elevation changes over a certain horizontal distance.
+									</p>
+
+									<div class="toggle-title">
+										<span class="arrow">&#9205;</span> <strong>Plan and profile curvature</strong>
+									</div>
+									<p class="hidden indented-paragraph">
+										Plan Curvature is the curvature of the surface in a horizontal plane. 
+										It indicates the rate of change of aspect along a contour line and affects water flow and erosion. 
+										Profile curvature is the curvature of the surface in a vertical plane. 
+										It reflects the rate of change of slope along a flow line and influences the acceleration and deceleration of water flow.
+									</p>
+
+									<div class="toggle-title">
+										<span class="arrow">&#9205;</span> <strong>Slope Angle</strong>
+									</div>
+									<p class="hidden indented-paragraph">
+										The angle between the slope surface and the horizontal plane, measured in degrees. It quantifies the steepness of the slope.
+									</p>
+								</section>
+
+								<section class="col-4 col-12-narrower">
+									<a href="../images/result/step1/DTM.png" class="image output">
+										<img src="../images/result/step1/DTM.png" alt="DTM" class="image output"/>
+									</a>
+								</section>
+							</div>
+						
+							<!-- Row 2 - Slope, aspect, plan and curvature -->
+							<div class="row">
+								<section class="col-3 col-12-narrower">
+									<header style="text-align: center;">
+										<p>aspect</p>
+									</header>
+									<div>
+										<a href="../images/result/step1/aspect.png" class="image output">
+											<img src="../images/result/step1/aspect.png" alt="Site Area" class="image output"/>
+										</a>
+									</div>
+								</section>
+
+								<section class="col-3 col-12-narrower">
+									<header style="text-align: center;">
+										<p>slope</p>
+									</header>
+									<div>
+										<a href="../images/result/step1/slope.png" class="image output">
+											<img src="../images/result/step1/slope.png" alt="Site Area" class="image output"/>
+										</a>
+									</div>									
+								</section>
+
+								<section class="col-3 col-12-narrower">
+									<header style="text-align: center;">
+										<p>plan curvature</p>
+									</header>
+									<div>
+										<a href="../images/result/step1/plan.png" class="image output">
+											<img src="../images/result/step1/plan.png" alt="Site Area" class="image output"/>
+										</a>
+									</div>
+								</section>
+
+								<section class="col-3 col-12-narrower">
+									<header style="text-align: center;">
+										<p>profile curvature</p>
+									</header>
+									<div>
+										<a href="../images/result/step1/profile.png" class="image output">
+											<img src="../images/result/step1/profile.png" alt="Site Area" class="image output"/>
+										</a>
+									</div>
+								</section>
+							</div>
+							
+						</div>
+
+					<!-- Step 2 - Classification -->
 						<div class="wrapper style1 container special">
 						<div class="row">
 							<div class="col-4 col-12-narrower">
@@ -147,7 +331,7 @@
 						</div>
 						</div>
 
-					<!-- Three -->
+					<!-- Step 3-  -->
 						<div class="wrapper style3 container special">
 
 						<header class="major">
