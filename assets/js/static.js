@@ -15,14 +15,11 @@ document.addEventListener('DOMContentLoaded', (event) => {
             }
         });
     });
-});
 
-
-// static.js
-document.addEventListener('DOMContentLoaded', (event) => {
-    // 默认显示80/20的数据集
     showDataset('dataset-80-20');
+    
 });
+
 
 function showDataset(datasetId) {
     // 隐藏所有的special row并移除active类

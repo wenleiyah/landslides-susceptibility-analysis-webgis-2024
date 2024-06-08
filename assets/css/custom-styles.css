@@ -228,13 +228,17 @@
 .flex-item {
     padding: 20px;
     cursor: pointer;
-    background-color: #f0f0f0;
+    background-color: #e7e7e7;
     flex-grow: 1;
     text-align: center;
 }
 
 .flex-item:hover {
     background-color: #e0e0e0;
+}
+
+.flex-item.active {
+    background-color: #96dad1;
 }
 
 .row.special {
@@ -249,14 +253,13 @@
     display: block;
     width: 100%;
     height: auto;
-    transform: scale(0.8);
+    transform: scale(0.75);
     transition: transform 0.5s ease;
 }
 
 .image-container img.show {
     transform: scale(1);
 }
-
 
 /* math */
     .centered-formula {
