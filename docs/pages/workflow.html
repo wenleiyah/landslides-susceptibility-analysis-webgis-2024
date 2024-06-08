@@ -21,34 +21,39 @@
 		<script type="module" crossorigin src="/webgis-class-2024-g7/assets/workflow.46e8ec1f.js"></script>
 		<link rel="modulepreload" crossorigin href="/webgis-class-2024-g7/assets/modulepreload-polyfill.c7c6310f.js">
 		<link rel="stylesheet" href="/webgis-class-2024-g7/assets/custom-styles.05f66ba0.css">
-		<link rel="stylesheet" href="/webgis-class-2024-g7/assets/main.6df3a759.css">
+		<link rel="stylesheet" href="/webgis-class-2024-g7/assets/main.d5b651cf.css">
 	</head>
 
 	<body class="left-sidebar is-preload">
 		<div id="page-wrapper">
 
 			<!-- Header -->
-				<header id="header">
+				<header id="header" class="alt">
 					<h1 id="logo"><a href="../index.html">Homepage</a></h1>
 					<nav id="nav"> 
 						<ul>
 							<li class="current"><a href="../index.html">HOME</a></li>
 							<li class="current"><a href="workflow.html">Workflow</a></li>
-							<li class="current"><a href="result.html">Result</a></li>
+							<li class="current"><a href="result.html">Conclusion</a></li>
 							<li class="current"><a href="webgis.html">WebGIS</a></li>
 						</ul>
 					</nav>
 				</header>
 
+			<!-- Banner -->
+			<div id="banner" class="custom-banner">
+				<div class="banner-transparency"></div>
+
+				</div>
+
+
 			<!-- Main -->
 				<article id="main">
-
-					<header class="special container">
-						<span class="icon solid fa-globe"></span>
+					<header class="container special">
+						<!-- <span class="icon solid fa-tablet-alt"></span> -->
 						<h2> <strong>Workflow</strong></h2>
 						<p>the data we are using and how we process the analysis</p>
 					</header>
-					<!-- Head image -->
 
 					<!-- Step 0 - Data Explaination -->
 						<div class="wrapper style3 container">
@@ -470,6 +475,7 @@
 									During the point selection process, we chose 4000 points and 1000 points for the training and validation sets, respectively, resulting in a total of four sets of training data.
 									</li>
 								</div>
+
 								<header>
 									<h4>Dataset 80/20</h4>
 								</header>
@@ -513,7 +519,6 @@
 											</tbody>
 										</table>
 									</div>
-	
 								</div>
 								<div class="col-6 col-12-narrower">
 									<div>
@@ -649,30 +654,40 @@
 							</div>										
 						</div>
 
-					<!-- Step 2 - Susceptibility Mapping Process -->
-					<div class="wrapper style3 container special gtr-150">
-						<header>
-							<h3>Step 2 - Susceptibility Mapping Process</h3>
-						</header>
+				<!-- Step 2 - Susceptibility Mapping Process -->
+				<div class="wrapper style3 container special gtr-150">
+					<header>
+						<h3>Step 2 - Susceptibility Mapping Process</h3>
+					</header>
 
-						<div class="row">
-							<section class="col-12 col-12-narrower toggle-body">
+					<div class="row">
+						<section class="col-6 col-12-narrower toggle-body">
+							<header>
+								<li><h4> Hazard classification using dzetsaka </h4></li>
+							</header>
+							<ol>
+								<li><b>Training procedure</b><br>
+								Before training,we need to remove NULL value in all attributes of datasets by using the Field Calculator tool to update the value of each attribute column, replacing null values with 999.
+								We use the plugin dzetsaka for classifying hazard.For each group of training/testing data,we choose Random Forest as classifier,and generate a virtual raster layer containing all the raster layers for training.</li>											
+								<li><b>Probability Map</b><br>
+								To describe the probability of landslide occurrence and create a probability map,we need to convert classification confidence into class probability by using the raster calculator,the input is as follows:
+								<br><b>("classification@1 "=2)*"confidence@1 "+ ("classification@1 "=1)*(100-"confidence@1 ")</b><br>
+								Thus,we obtain the derived probability map from the training result.	   
+							</ol>
+						</section>
+						<section class="col-6 col-12-narrower">
+							<div>
+								<a href="../images/result/step2/LandslideSusceptibilityMap.png" class="image output">
+									<img src="/webgis-class-2024-g7/assets/LandslideSusceptibilityMap.db8c5c80.png" alt="NLZ Difference" class="image output"/>
+								</a>
 								<header>
-									<li><h4> Hazard classification using dzetsaka </h4></li>
+									<h4>Landslide Susceptibility Map</h4>
 								</header>
-								<ol>
-									<li><b>Training procedure</b><br>
-									Before training,we need to remove NULL value in all attributes of datasets by using the Field Calculator tool to update the value of each attribute column, replacing null values with 999.
-									We use the plugin dzetsaka for classifying hazard.For each group of training/testing data,we choose Random Forest as classifier,and generate a virtual raster layer containing all the raster layers for training.</li>											
-									<li><b>Probability Map</b><br>
-									To describe the probability of landslide occurrence and create a probability map,we need to convert classification confidence into class probability by using the raster calculator,the input is as follows:
-									<br><b>("classification@1 "=2)*"confidence@1 "+ ("classification@1 "=1)*(100-"confidence@1 ")</b><br>
-									Thus,we obtain the derived probability map from the training result.
-									   
-								</ol>
-							</section>
-						</div>							
-					</div>
+							</div>
+						</section>
+					</div>		
+
+				</div>
 
 				<!-- Step 3 - Exposure assessment -->
 				<div class="wrapper style3 container special gtr-150">
@@ -691,15 +706,66 @@
 									We adopted the same processing workflow as in the data preprocessing stage.First reproject the population raster to WGS 84/ UTM Zone 32N,EPSG:32632 to maintain consistency of the CRS between datasets.Then clip the population raster layer using the mask vector of group 7,to obtain the population raster for exposure assessment.
 									</li>											
 								<li><b>Ranking the Degree</b><br>
-									For ranking the degree of exposure,we need to reclassify the susceptibility raster map into 4 classes: 
-									[0, 0.25) =low; [0.25, 0.5) =moderate; [0.5, 0.75) =high; [0.75, 1] =very high.We use the classify by table tool to perform classification.
-									Then we resample the reclassified susceptibility raster map using extension and resolution of the clipped population raster dataset,which is around 81.67 m.
+									For ranking the degree of exposure,we need to reclassify the susceptibility raster map into 4 classes
+									<table class="default">
+										<tbody>
+											<tr>
+												<th style="background-color: rgba(124, 128, 129, 0.2);">[0, 0.25)</th>
+												<th>low</th>
+											</tr>
+											<tr>
+												<th style="background-color: rgba(124, 128, 129, 0.2);">[0.25, 0.5)</th>
+												<th>moderate</th>
+											</tr>
+											<tr>
+												<th style="background-color: rgba(124, 128, 129, 0.2);">[0.5, 0.75)</th>
+												<th>high</th>
+											</tr>
+											<tr>
+												<th style="background-color: rgba(124, 128, 129, 0.2);">[0.75, 1)</th>
+												<th>very high</th>
+											</tr>
+										</tbody>
+									</table>
+									We use the classify by table tool to perform classification.
+									Then we resample the reclassified susceptibility raster map using extension and resolution of the clipped population raster dataset,which is around <b>81.67 m </b>.
 									</li>
+
+									<!-- Outputs -->
+									<div class="row">
+										<section class="col-4 col-12-narrower">
+											<a href="../images/result/step3/population.png" class="image output">
+												<img src="/webgis-class-2024-g7/assets/population.4a434929.png" alt="population map" class="image output"/>
+											</a>
+											<header style="text-align: center;margin-bottom: 20px;">
+												<p>Population Map</p>
+											</header>
+										</section>
+										<section class="col-4 col-12-narrower">
+											<a href="../images/result/step3/LandslideSusceptibilityMap_reclassified.png" class="image output">
+												<img src="/webgis-class-2024-g7/assets/LandslideSusceptibilityMap_reclassified.4c13bd1e.png" alt="LandslideSusceptibilityMap_reclassified" class="image output"/>
+											</a>
+											<header style="text-align: center;margin-bottom: 20px;">
+												<p>Reclassified Landslide Susceptibility Map </p>
+											</header>
+										</section>
+										<section class="col-4 col-12-narrower">
+											<a href="../images/result/step3/LandslideSusceptibilityMap_resampled.png" class="image output">
+												<img src="/webgis-class-2024-g7/assets/LandslideSusceptibilityMap_resampled.513f008f.png" alt="LandslideSusceptibilityMap_resampled" class="image output"/>
+											</a>
+											<header style="text-align: center;margin-bottom: 20px;">
+												<p>Resampled into the same pixel resolution with Population</p>
+											</header>
+										</section>
+									</div>		
+
 								<li><b>Analysis with csv</b><br>
 									To compute the population counts in each susceptibility class, we use the tool Processing > Raster Analysis > Raster layer zonal statistics. Set the input layer to the clipped population raster dataset and the zones layer to the resampled susceptibility raster map. Finally, plot a pie chart showing the percentage of the population in each susceptibility class.	</li>
 							</ol>
 						</section>
-					</div>							
+					</div>
+				
+					
 				</div>
 
 				<!-- Step 5 - Webgis -->
@@ -717,23 +783,6 @@
 					</div>							
 				</div>
 
-				<!-- Problem Encounterd - -->
-				<div class="wrapper style1 container special gtr-150">
-					<header>
-						<h3>Problems encontered </h3>
-					</header>
-
-					<div class="row">
-						<section class="col-12 col-12-narrower toggle-body">
-							<ol>
-								<li><b>NDVI mask</b><br>	</li>											
-								<li><b>Landslide inventory polygons cutting(splitting dataset manually for some specific conditions)</b><br> </li>
-								<li><b>Train/Test dataset (number and ratio)</b><br>	</li>
-							</ol>
-						</section>
-					</div>							
-				</div>
-
 				<!-- Link to Workflow -->
 				<div class="special container">
 				<footer>
@@ -745,7 +794,19 @@
 
 				</article>
 
-				
+			<!-- CTA -->
+			<div id="cta">
+				<header>
+					<h2>Get <strong>Cource Code</strong>?</h2>
+				</header>
+				<footer>
+					<ul class="buttons">
+						<li><a href="https://github.com/wenleiyah/webgis-class-2024-g7" class="button primary">Github Link</a></li>
+						<!-- <li><a href="pages/workflow.html" class="button">Go to Workflow</a></li> -->
+					</ul>
+				</footer>
+
+			</div>	
 
 			<!-- Footer -->
 				<footer id="footer">
