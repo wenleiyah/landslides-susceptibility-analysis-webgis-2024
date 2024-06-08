@@ -72,7 +72,7 @@ input, select, textarea {
 	appearance: none;
 }
 
-em {
+em,i {
 	font-style: italic;
 }
 
@@ -104,9 +104,10 @@ em {
 	body, input, select, textarea {
 		color: #7c8081;
 		font-family: 'Lato', sans-serif;
-		font-size: 15pt;
+		font-size: 14pt;
 		font-weight: 300;
-		letter-spacing: 0.025em;
+		/* letter-spacing: 0.025em; */
+		letter-spacing: 0.01em;
 		line-height: 1.75em;
 	}
 
@@ -132,8 +133,6 @@ em {
 		margin: 0 0 2em 0;
 	}
 
-	
-
 	h1, h2, h3, h4, h5, h6 {
 		color: inherit;
 		font-weight: 300;
@@ -154,13 +153,15 @@ em {
 	}
 
 	h3 {
-		font-size: 1.15em;
+		font-size: 1.25em;
 		letter-spacing: 0.025em;
 	}
 
 	h4 {
-		font-size: 1em;
-		letter-spacing: 0.01em;
+		font-size: 1.15em;
+		letter-spacing: 0.015em;
+		font-weight: 400;
+		text-transform: none;
 	}
 
 
@@ -2118,7 +2119,8 @@ em {
 		width: 100%;
 	}
 
-		table.default {
+		
+	.default {
 			width: 100%;
 		}
 
@@ -2128,6 +2130,8 @@ em {
 
 			table.default td {
 				padding: 0.5em 1em 0.5em 1em;
+				border-bottom: solid 1px rgba(124, 128, 129, 0.2);
+				border-left: solid 1px rgba(124, 128, 129, 0.2);
 			}
 
 			table.default th {
@@ -2137,7 +2141,8 @@ em {
 			}
 
 			table.default thead {
-				background: #7c8081;
+				background: rgba(124, 128, 129, 0.2);
+				font-weight: 400;
 				color: #fff;
 			}
 
