@@ -649,101 +649,99 @@
 							</div>										
 						</div>
 
-					<!-- Step 2 - Hazard -->
-						<div class="wrapper style1 container special">
-							<!-- Description -->
-							<div class="row">
-								<div class="col-4 col-12-narrower">
-									<div>
-										<span class="icon solid featured fa-check"></span>
-										<header>
-											<h3>This is Something</h3>
-										</header>
-										<p>Sed tristique purus vitae volutpat ultrices. Aliquam eu elit eget arcu commodo suscipit dolor nec nibh. Proin a ullamcorper elit, et sagittis turpis. Integer ut fermentum.</p>
-									</div>
-								</div>
-								<div class="col-4 col-12-narrower">
-									<div>
-										<span class="icon solid featured fa-check"></span>
-										<header>
-											<h3>Also Something</h3>
-										</header>
-										<p>Sed tristique purus vitae volutpat ultrices. Aliquam eu elit eget arcu commodo suscipit dolor nec nibh. Proin a ullamcorper elit, et sagittis turpis. Integer ut fermentum.</p>
-									</div>
-								</div>
-								<div class="col-4 col-12-narrower">
-									<div>
-										<span class="icon solid featured fa-check"></span>
-										<header>
-											<h3>Probably Something</h3>
-										</header>
-										<p>Sed tristique purus vitae volutpat ultrices. Aliquam eu elit eget arcu commodo suscipit dolor nec nibh. Proin a ullamcorper elit, et sagittis turpis. Integer ut fermentum.</p>
-									</div>
-								</div>
-							</div>
-							<!-- Output -->
-							 
-						</div>
-
-						
-
-					<!-- Step 3-  -->
-						<div class="wrapper style3 container special">
-
-						<header class="major">
-							<h2>You can also remove stuff that you do not need!</h2>
+					<!-- Step 2 - Susceptibility Mapping Process -->
+					<div class="wrapper style3 container special gtr-150">
+						<header>
+							<h3>Step 2 - Susceptibility Mapping Process</h3>
 						</header>
 
 						<div class="row">
-							<div class="col-6 col-12-narrower">
+							<section class="col-12 col-12-narrower toggle-body">
+								<header>
+									<li><h4> Hazard classification using dzetsaka </h4></li>
+								</header>
+								<ol>
+									<li><b>Training procedure</b><br>
+									Before training,we need to remove NULL value in all attributes of datasets by using the Field Calculator tool to update the value of each attribute column, replacing null values with 999.
+									We use the plugin dzetsaka for classifying hazard.For each group of training/testing data,we choose Random Forest as classifier,and generate a virtual raster layer containing all the raster layers for training.</li>											
+									<li><b>Probability Map</b><br>
+									To describe the probability of landslide occurrence and create a probability map,we need to convert classification confidence into class probability by using the raster calculator,the input is as follows:
+									<br><b>("classification@1 "=2)*"confidence@1 "+ ("classification@1 "=1)*(100-"confidence@1 ")</b><br>
+									Thus,we obtain the derived probability map from the training result.
+									   
+								</ol>
+							</section>
+						</div>							
+					</div>
 
-								<div>
-									<a href="#" class="image featured"><img src="images/pic01.jpg" alt="" /></a>
-									<header>
-										<h3>A Really Fast Train</h3>
-									</header>
-									<p>Sed tristique purus vitae volutpat commodo suscipit amet sed nibh. Proin a ullamcorper sed blandit. Sed tristique purus vitae volutpat commodo suscipit ullamcorper sed blandit lorem ipsum dolore.</p>
-								</div>
+				<!-- Step 3 - Exposure assessment -->
+				<div class="wrapper style3 container special gtr-150">
+					<header>
+						<h3>Step 3&4 - Exposure assessment</h3>
+					</header>
 
-							</div>
-							<div class="col-6 col-12-narrower">
+					<div class="row">
+						<section class="col-12 col-12-narrower toggle-body">
+							<header>
+								<li><h4> Population Analysis </h4></li>
+							</header>
+							<ol>
+								<li><b>Data preprocessing</b><br>
+									For exposure assessment,we use the worldpop raster data,which is a spatial raster dataset with the estimated total number of people per grid-cell.
+									We adopted the same processing workflow as in the data preprocessing stage.First reproject the population raster to WGS 84/ UTM Zone 32N,EPSG:32632 to maintain consistency of the CRS between datasets.Then clip the population raster layer using the mask vector of group 7,to obtain the population raster for exposure assessment.
+									</li>											
+								<li><b>Ranking the Degree</b><br>
+									For ranking the degree of exposure,we need to reclassify the susceptibility raster map into 4 classes: 
+									[0, 0.25) =low; [0.25, 0.5) =moderate; [0.5, 0.75) =high; [0.75, 1] =very high.We use the classify by table tool to perform classification.
+									Then we resample the reclassified susceptibility raster map using extension and resolution of the clipped population raster dataset,which is around 81.67 m.
+									</li>
+								<li><b>Analysis with csv</b><br>
+									To compute the population counts in each susceptibility class, we use the tool Processing > Raster Analysis > Raster layer zonal statistics. Set the input layer to the clipped population raster dataset and the zones layer to the resampled susceptibility raster map. Finally, plot a pie chart showing the percentage of the population in each susceptibility class.	</li>
+							</ol>
+						</section>
+					</div>							
+				</div>
 
-								<div>
-									<a href="#" class="image featured"><img src="images/pic02.jpg" alt="" /></a>
-									<header>
-										<h3>An Airport Terminal</h3>
-									</header>
-									<p>Sed tristique purus vitae volutpat commodo suscipit amet sed nibh. Proin a ullamcorper sed blandit. Sed tristique purus vitae volutpat commodo suscipit ullamcorper sed blandit lorem ipsum dolore.</p>
-								</div>
+				<!-- Step 5 - Webgis -->
+				<div class="wrapper style3 container special gtr-150">
+					<header>
+						<h3>Step 5 - WebGIS</h3>
+					</header>
 
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-6 col-12-narrower">
+					<div class="row">
+						<section class="col-12 col-12-narrower toggle-body">
+							<ul>
+								<li>,..	</li>
+							</ul>
+						</section>
+					</div>							
+				</div>
 
-								<div>
-									<a href="#" class="image featured"><img src="images/pic03.jpg" alt="" /></a>
-									<header>
-										<h3>Hyperspace Travel</h3>
-									</header>
-									<p>Sed tristique purus vitae volutpat commodo suscipit amet sed nibh. Proin a ullamcorper sed blandit. Sed tristique purus vitae volutpat commodo suscipit ullamcorper sed blandit lorem ipsum dolore.</p>
-								</div>
+				<!-- Problem Encounterd - -->
+				<div class="wrapper style1 container special gtr-150">
+					<header>
+						<h3>Problems encontered </h3>
+					</header>
 
-							</div>
-							<div class="col-6 col-12-narrower">
+					<div class="row">
+						<section class="col-12 col-12-narrower toggle-body">
+							<ol>
+								<li><b>NDVI mask</b><br>	</li>											
+								<li><b>Landslide inventory polygons cutting(splitting dataset manually for some specific conditions)</b><br> </li>
+								<li><b>Train/Test dataset (number and ratio)</b><br>	</li>
+							</ol>
+						</section>
+					</div>							
+				</div>
 
-								<div>
-									<a href="#" class="image featured"><img src="images/pic04.jpg" alt="" /></a>
-									<header>
-										<h3>And Another Train</h3>
-									</header>
-									<p>Sed tristique purus vitae volutpat commodo suscipit amet sed nibh. Proin a ullamcorper sed blandit. Sed tristique purus vitae volutpat commodo suscipit ullamcorper sed blandit lorem ipsum dolore.</p>
-								</div>
-
-							</div>
-						</div>
-						</div>
-				
+				<!-- Link to Workflow -->
+				<div class="special container">
+				<footer>
+					<ul class="buttons">
+						<li><a href="pages/result.html" class="button primary scrolly">Check Result</a></li>
+					</ul>
+				</footer>
+				</div>				
 
 				</article>
 
