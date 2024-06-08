@@ -13,7 +13,13 @@
 		
 		
 		
-		<link rel="stylesheet" href="/webgis-class-2024-g7/assets/custom-styles.05f66ba0.css">
+	    <!-- Modules are imported normally -->
+		<script defer src="../assets/js/static.js"></script>
+
+		<!-- MathJax -->
+		<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+		<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+		<link rel="stylesheet" href="/webgis-class-2024-g7/assets/custom-styles.1a813b36.css">
 		<link rel="stylesheet" href="/webgis-class-2024-g7/assets/main.d5b651cf.css">
 	</head>
 
@@ -47,59 +53,404 @@
 						<h2> <strong>Result</strong></h2>
 						<p>Where things on the right ... accompany that on the left.</p>
 					</header>
+					
+					<!-- 4 type of dataset -->
+					<section class="wrapper style4 container special">
+						<!-- Outputs -->
+						<div class="row">
+							<section>
+								<header>
+									<h4>Exploration of Dataset</h4>
+								</header>
+								<p>To select the best-performing model for susceptibility mapping, we created two sets of data with training/testing ratios of 70/30 and 80/20, respectively. 
+									Also did some experiment with different total number of the dataset with 4000 points and 1000 points, respectively, resulting in a total of four sets of training data.  </p>
+							</section>
+							<section class="col-12 col-12-narrower">
+								<div class="flex-container">
+									<div class="flex-item" onclick="showDataset('dataset-80-20')">Dataset 80/20</div>
+									<div class="flex-item" onclick="showDataset('dataset-70-30')">Dataset 70/30</div>
+								</div>
+							</section>
+						</div>
+
+						<div id="dataset-80-20" class="row special">
+							<div class="col-6 col-12-narrower">
+								<div class="image-container">
+									<a href="../images/result/step1/80_20_1000.png" class="image">
+										<img src="/webgis-class-2024-g7/assets/80_20_1000.31310eed.png" alt="NLZ Difference" class="image output"/>
+									</a>
+									<header>
+										<h4>1000 points</h4>
+									</header>
+									<table class="default">
+										<thead>
+											<tr>
+												<th></th>
+												<td>Hazard Value</td>
+												<td>Numbers of Points</td>
+											</tr>
+										</thead>
+										<tbody style="font-size: 0.9em">
+											<tr>
+												<th>Train</th> 
+												<td>1</td>
+												<td>400</td>
+											</tr>
+											<tr>
+												<th>Train	</th> 
+												<td>2</td>
+												<td>400</td>
+											</tr>
+											<tr>
+												<th>Test</th>
+												<td>1</td>
+												<td>100</td>
+											</tr>
+											<tr>
+												<th>Test</th>
+												<td>2</td>
+												<td>100</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+							<div class="col-6 col-12-narrower">
+								<div class="image-container">
+									<a href="../images/result/step1/80_20_4000.png" class="image">
+										<img src="/webgis-class-2024-g7/assets/80_20_4000.515d36dd.png" alt="NLZ Difference" class="image output"/>
+									</a>
+									<header>
+										<h4>4000 points</h4>
+									</header>
+									<table class="default">
+										<thead>
+											<tr>
+												<th></th>
+												<td>Hazard Value</td>
+												<td>Numbers of Points</td>
+											</tr>
+										</thead>
+										<tbody style="font-size: 0.9em">
+											<tr>
+												<th>Train</th> 
+												<td>1</td>
+												<td>1600</td>
+											</tr>
+											<tr>
+												<th>Train	</th> 
+												<td>2</td>
+												<td>1600</td>
+											</tr>
+											<tr>
+												<th>Test</th>
+												<td>1</td>
+												<td>400</td>
+											</tr>
+											<tr>
+												<th>Test</th>
+												<td>2</td>
+												<td>400</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+
+							</div>
+						</div>
+						<div id="dataset-70-30" class="row special hidden">
+							<div class="col-6 col-12-narrower">
+								<div class="image-container">
+									<a href="../images/result/step1/70_30_1000.png" class="image" style="background: transparent;">
+										<img src="/webgis-class-2024-g7/assets/70_30_1000.3985ab25.png" alt="NLZ Difference" class="image output"/>
+									</a>
+									<header>
+										<h4>1000 points</h4>
+									</header>
+									<table class="default">
+										<thead>
+											<tr>
+												<th></th>
+												<td>Hazard Value</td>
+												<td>Numbers of Points</td>
+											</tr>
+										</thead>
+										<tbody style="font-size: 0.9em">
+											<tr>
+												<th>Train</th> 
+												<td>1</td>
+												<td>350</td>
+											</tr>
+											<tr>
+												<th>Train	</th> 
+												<td>2</td>
+												<td>350</td>
+											</tr>
+											<tr>
+												<th>Test</th>
+												<td>1</td>
+												<td>150</td>
+											</tr>
+											<tr>
+												<th>Test</th>
+												<td>2</td>
+												<td>150</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+
+							</div>
+							<div class="col-6 col-12-narrower">
+								<div class="image-container">
+									<a href="../images/result/step1/70_30_4000.png" class="image">
+										<img src="/webgis-class-2024-g7/assets/70_30_4000.afbcf67a.png" alt="NLZ Difference" class="image output"/>
+									</a>
+									<header>
+										<h4>4000 points</h4>
+									</header>
+									<table class="default">
+										<thead>
+											<tr>
+												<th></th>
+												<td>Hazard Value</td>
+												<td>Numbers of Points</td>
+											</tr>
+										</thead>
+										<tbody style="font-size: 0.9em">
+											<tr>
+												<th>Train</th> 
+												<td>1</td>
+												<td>1400</td>
+											</tr>
+											<tr>
+												<th>Train	</th> 
+												<td>2</td>
+												<td>1400</td>
+											</tr>
+											<tr>
+												<th>Test</th>
+												<td>1</td>
+												<td>600</td>
+											</tr>
+											<tr>
+												<th>Test</th>
+												<td>2</td>
+												<td>600</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+
+							</div>
+						</div>	
+					</section>
 
 					<!-- Output validation -->
-						<section class="wrapper style4 container">
-
-							<div class="row gtr-150">
+						<section class="wrapper style4 container">							
+							<div class="row">
 								<div class="col-6 col-12-narrower">
-
 									<!-- Content -->
-										<div class="content">
-											<section>
-												<a href="../images/result/step3/LandslideSusceptibilityMap_reclassified.png" class="image output">
-													<img src="/webgis-class-2024-g7/assets/LandslideSusceptibilityMap_reclassified.4c13bd1e.png" alt="reclassified landslide susceptibility map" class="image output"/></a>
-												<!-- <header>
-													<h3>Output validation</h3>
-												</header>
-												<p>Aliquam massa urna, imperdiet sit amet mi non, bibendum euismod est. Curabitur mi justo, tincidunt vel eros ullamcorper, porta cursus justo. Cras vel neque eros. Vestibulum diam quam, mollis at consectetur non, malesuada quis augue. Morbi tincidunt pretium interdum. Morbi mattis elementum orci, nec dictum massa. Morbi eu faucibus massa. Aliquam massa urna, imperdiet sit amet mi non, bibendum euismod est. Curabitur mi justo, tincidunt vel eros ullamcorper, porta cursus justo. Cras vel neque eros. Vestibulum diam.</p>
-												<p>Vestibulum diam quam, mollis at consectetur non, malesuada quis augue. Morbi tincidunt pretium interdum. Morbi mattis elementum orci, nec dictum porta cursus justo. Quisque ultricies lorem in ligula condimentum, et egestas turpis sagittis. Cras ac nunc urna. Nullam eget lobortis purus. Phasellus vitae tortor non est placerat tristique. Sed id sem et massa ornare pellentesque. Maecenas pharetra porta accumsan. </p>
-												<p>In vestibulum massa quis arcu lobortis tempus. Nam pretium arcu in odio vulputate luctus. Suspendisse euismod lorem eget lacinia fringilla. Sed sed felis justo. Nunc sodales elit in laoreet aliquam. Nam gravida, nisl sit amet iaculis porttitor, risus nisi rutrum metus, non hendrerit ipsum arcu tristique est.</p> -->
-											</section>
-										</div>
-
+									<div class="content">
+										<section>
+											<header>
+												<h4>Classification Accuracy Validation</h4>
+											</header>
+											<p>To better measure the accuracy of training result,
+												we use the provided python scripts to obtain the error matrix and accuracy indexes including 
+												<b><em>overall accuracy (OA),user's accuracy (UA) and producer's accuracy (PA) </em></b> </p>
+											<li> <b>Error Matrix</b> <br>also known as the confusion matrix, is used to compare reference data (true values) with classified data (predicted values). Rows represent classification results, and columns represent reference data. Each element in the matrix indicates the number of samples where the corresponding classification matches the reference value.
+												<br>Thematic Value known as the Hazard 1/2 value we set for No Landslide Zone & Landslide Inventory
+											</li>
+										</section>
+										<section>
+											<ul>
+												<li> <b>User's Accuracy (UA)</b><br>indicates the proportion of samples in a particular classification category 
+													that are correctly classified, reflecting the reliability of the classification results.
+													<br><span class="centered-formula">
+														\(UA_i = \frac{n_{ii}}{n_{i+}} \)</span>
+													<ul>
+														<li>\(n_{ii} \)s the number of samples where both the classification result and the reference value are i (diagonal element).
+															</li>
+														<li>\(n_{i+} \)is the total number of samples classified as i (sum of the i-th row)</li>
+													</ul>
+												</li>
+											</ul>
+										</section>
+										<section>
+											<a href="../images/result/step3/LandslideSusceptibilityMap_reclassified.png" class="image output">
+												<img src="/webgis-class-2024-g7/assets/LandslideSusceptibilityMap_reclassified.4c13bd1e.png" alt="reclassified landslide susceptibility map" class="image output"/></a>
+										</section>
+									</div>
 								</div>
-								<div class="col-6 col-12-narrower">
 
+								<div class="col-6 col-12-narrower">
 									<!-- Sidebar -->
 										<div class="sidebar">
 											<section>
-												<header>
-													<h4>Classification Accuracy Validation</h4>
-												</header>
-												<p>To better measure the accuracy of training result,
-													we use the provided python scripts to obtain the error matrix and accuracy indexes including 
-													<b><em>overall accuracy (OA),user's accuracy (UA) and producer's accuracy (PA) </em></b> </p>
+												<ul>
+													<li> <b>Producer's Accuracy (PA)</b><br>indicates the proportion of samples in a particular reference category that are correctly classified, reflecting the effectiveness of the classifier.
+														<br><span class="centered-formula">
+															\( PA_i = \frac{n_{ii}}{n_{+i}} \) </span>
+														<ul>
+															<li>\(n_{ii}\)is the number of samples where both the classification result and the reference value are i (diagonal element).</li>
+															<li>\(n_{+i}\)is the total number of samples with the reference value iii (sum of the i-th column).</li>
+														</ul>
+													</li>
 
+													<li> <b>Overall Accuracy (OA)</b><br>indicates the proportion of all samples that are correctly classified, measuring the overall performance of the classification.
+														<br><span class="centered-formula">
+															\( OA = \frac{\sum_i n_{ii}}{\sum_i n_{i+}} \)</span>
+														<ul>
+															<li>\({\sum_i n_{ii}} \)is the sum of all diagonal elements, representing the number of correctly classified samples.</li>
+															<li>\({\sum_i n_{i+}}\)is the total number of samples.</li>
+														</ul>
+													</li>
+
+												</ul>
 											</section>
+											<!-- Error Matrix -->
+												<div>
+													<li> <b>Error Matrix of 1000 points with 70/30 ratio<b>
+														<table class="default">
+															<thead>
+																<tr>
+																	<th>Hazard</th>
+																	<th>1</th>
+																	<th>2</th>
+																	<th>UA</th>
+																	<th>PA</th>
+																	<th>OA</th>
+																</tr>
+															</thead>
+															<tbody>
+																<tr>
+																	<th>1</th> 
+																	<th>141</th>
+																	<th>10</th>
+																	<th>0.93</th>
+																	<th>0.94</th>
+																	<th>0.9367</th>
+																</tr>
+																<tr>
+																	<th>2</th>
+																	<th>9</th>
+																	<th>140</th>
+																	<th>0.94</th>
+																	<th>0.93</th>
+																	<th></th>
+																</tr>
+															</tbody>
+														</table>
+													</li>
 
-											<section>
-												<a href="#" class="image featured"><img src="images/pic04.jpg" alt="" /></a>
-												<header>
-													<h3>Amet Lorem Tempus</h3>
-												</header>
-												<p>Sed tristique purus vitae volutpat commodo suscipit amet sed nibh. Proin a ullamcorper sed blandit. Sed tristique purus vitae volutpat commodo suscipit ullamcorper sed blandit lorem ipsum dolore.</p>
-												<footer>
-													<ul class="buttons">
-														<li><a href="#" class="button small">Learn More</a></li>
-													</ul>
-												</footer>
+													<li> <b>Error Matrix of 4000 points with 70/30 ratio<b>
+														<table class="default">
+															<thead>
+																<tr>
+																	<th>Hazard</th>
+																	<th>1</th>
+																	<th>2</th>
+																	<th>UA</th>
+																	<th>PA</th>
+																	<th>OA</th>
+																</tr>
+															</thead>
+															<tbody>
+																<tr>
+																	<th>1</th> 
+																	<th>554</th>
+																	<th>56</th>
+																	<th>0.91</th>
+																	<th>0.92</th>
+																	<th>0.915</th>
+																</tr>
+																<tr>
+																	<th>2</th>
+																	<th>46</th>
+																	<th>544</th>
+																	<th>0.92</th>
+																	<th>0.91</th>
+																	<th></th>
+																</tr>
+															</tbody>
+														</table>
+													</li>
+
+													<li> <b>Error Matrix of 1000 points with 80/20 ratio<b>
+														<table class="default">
+															<thead>
+																<tr>
+																	<th>Hazard</th>
+																	<th>1</th>
+																	<th>2</th>
+																	<th>UA</th>
+																	<th>PA</th>
+																	<th>OA</th>
+																</tr>
+															</thead>
+															<tbody>
+																<tr>
+																	<th>1</th> 
+																	<th>80</th>
+																	<th>12</th>
+																	<th>0.87</th>
+																	<th>0.80</th>
+																	<th>0.84</th>
+																</tr>
+																<tr>
+																	<th>2</th>
+																	<th>20</th>
+																	<th>88</th>
+																	<th>0.81</th>
+																	<th>0.99</th>
+																	<th></th>
+																</tr>
+															</tbody>
+														</table>
+													</li>
+
+													<li> <b>Error Matrix of 4000 points with 80/20 ratio<b>
+														<table class="default">
+															<thead>
+																<tr>
+																	<th>Hazard</th>
+																	<th>1</th>
+																	<th>2</th>
+																	<th>UA</th>
+																	<th>PA</th>
+																	<th>OA</th>
+																</tr>
+															</thead>
+															<tbody>
+																<tr>
+																	<th>1</th> 
+																	<th>335</th>
+																	<th>55</th>
+																	<th>0.86</th>
+																	<th>0.84</th>
+																	<th>0.85</th>
+																</tr>
+																<tr>
+																	<th>2</th>
+																	<th>65</th>
+																	<th>345</th>
+																	<th>0.84</th>
+																	<th>0.86</th>
+																	<th></th>
+																</tr>
+															</tbody>
+														</table>
+													</li>
+												</div>
 											</section>
 										</div>
 
 								</div>
 							</div>
 						</section>
+
+
 
 					<!-- Two -->
 						<section class="wrapper style1 container special">

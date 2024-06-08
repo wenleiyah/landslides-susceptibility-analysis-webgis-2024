@@ -44,611 +44,478 @@
 
 
 			<!-- Main -->
-				<article id="main">
-					<header class="container special">
-						<!-- <span class="icon solid fa-tablet-alt"></span> -->
-						<h2> <strong>Workflow</strong></h2>
-						<p>the data we are using and how we process the analysis</p>
+			<article id="main">
+				<header class="container special">
+					<!-- <span class="icon solid fa-tablet-alt"></span> -->
+					<h2> <strong>Workflow</strong></h2>
+					<p>the data we are using and how we process the analysis</p>
+				</header>
+
+				<!-- Step 0 - Data Explaination -->
+				<div class="wrapper style3 container">
+					<div>
+						<img src="../images/result/site-hori-osm.png" alt="Site Area" class="image output"/>
+						<header>
+							<h3>Step 0 - Data Pronunciation</h3>
+							<p>prounciation of the data we used for the analysis: <b><em>DUSAF, DTM, NVDI, Distance Characterization Data, and Landslides Inventory. </em></b>
+						</header>
+						
+					</div>
+					
+				<!-- Row 1 NVDI & DUSAF & DTM -->
+					<!-- Description -->
+					<div class="row">
+						<section class="col-12-narrower toggle-body">
+							<div class="toggle-title">
+								<span class="arrow">&#9205;</span> <strong>DUSAF (Digital Urban Surface Analysis Factors)</strong>
+							</div>
+							<p class="hidden indented-paragraph">
+								DUSAF stands for digital urban surface analysis factors, which is a raster that includes different factors about buildings, roads and other factors, provides land use and landcover information.By taking DUSAF into the source data of sampling the  training dataset, we can see how human activities change the natural environment and influence the risk of landslides.
+							</p>
+
+							<div class="toggle-title">
+								<span class="arrow">&#9205;</span> <strong>NDVI (Normalized Difference Vegetation Index)</strong>
+							</div>
+							<p class="hidden indented-paragraph">
+								Normalized Difference Vegetation Index (NDVI) is an indicator of the degree of greenness of a biome, which is not a physical attribute but is widely used to monitor ecosystems.The NDVI can be calculated using the formula:<br><span class="centered-formula">
+								\( \text{NDVI} = \frac{\text{NIR} - \text{RED}}{\text{NIR} + \text{RED}} \)</span>NIR and RED are the spectral reflectances measured in the near-infrared and red wavebands, respectively. This index ranges from -1 to +1, with higher values indicating healthier and denser vegetation.NDVI plays a rather important role in landslide susceptibility mapping, since the vegetation cover indicated by the NDVI can affect the slope stability, thus eventually affecting the output of analyzing landslide.
+							</p>
+
+							<div class="toggle-title">
+								<span class="arrow">&#9205;</span> <strong>DTM (Digital Terrain Model)</strong>
+							</div>
+							<p class="hidden indented-paragraph">
+							DTM is the raster data representing the surface of the terrain, known as Digital Terrain Models (DTMs), 
+							consisting of XYZ coordinates that provide detailed elevation information. This data shows the elevation and facilitates the calculation of 
+							various topographic attributes such as <em><b>slope, aspect, plan and profile curvature, and slope angle</b></em>. 
+							These attributes are critical in many geospatial analyses, including landslide susceptibility mapping.
+							In our case, we need to use the derived layers mentioned above to calculate the non landslide zones for training.
+							</p>
+						</section>
+					</div>
+					<!-- Images -->
+					<div class="row">
+						<section class="col-4 col-12-narrower">
+							<a href="../images/result/step1/NVDI.png" class="image output">
+								<img src="../images/result/step1/NVDI.png" alt="Site Area" class="image output"/>
+							</a>
+							<header style="text-align: center;margin-bottom: 20px;">
+								<p>NVDI</p>
+							</header>
+						</section>
+						</section>
+						<section class="col-4 col-12-narrower">
+							<a href="../images/result/step1/DUSAF.png" class="image output">
+								<img src="../images/result/step1/DUSAF.png" alt="Site Area" class="image output"/>
+							</a>
+							<header style="text-align: center;margin-bottom: 20px;">
+								<p>DUSAF</p>
+							</header>
+						</section>
+						</section>
+						<section class="col-4 col-12-narrower">
+							<a href="../images/result/step1/DTM.png" class="image output">
+								<img src="../images/result/step1/DTM.png" alt="DTM" class="image output"/>
+							</a>
+							<header style="text-align: center;margin-bottom: 20px;">
+								<p>DTM</p>
+							</header>
+						</section>
+						</section>
+					</div>
+
+				<!-- Row 2 Distance Characterization Data -->
+					<!-- Description -->
+					<div class="row">
+						<div class="toggle-body">
+							<div class="toggle-title">
+								<span class="arrow">&#9205;</span> <strong>Distance Characterization Data</strong>
+							</div>
+							<div class="hidden indented-paragraph">
+								<p>The data related to distance, including road, river network and distance to geological faults have important impacts  on landslides, which needs to be taken into consideration when predicting landslides.</p>
+								<li><strong>Roads</strong><br>obtained from OpenStreetMap as vector data, are analyzed by creating buffer zones at distances of 50, 100, 200, 500 meters, and beyond. These buffer zones help in understanding the influence of roads on nearby slopes.</li> 
+								<li><strong>Rivers</strong><br>mapped as vector data from OpenStreetMap, are analyzed by creating buffer zones at distances of 50, 100, 200, 500 meters, and more. These buffer zones help in understanding the impact of rivers on slopes since rivers can cause erosion at the base of slopes, which can eventually lead to landslides.</li> 
+								<li><strong>Faults</strong><br>can create zones of weakness in the earth's crust, making them more susceptible to landslides. We use the geodetic faults data from GeoPortale Lombardia, which are analyzed by creating buffer zones at distances of 50, 100, 200, 500 meters, and more. These buffer zones help in evaluating the impact of faults on surrounding areas.</li> 
+							</div>
+						</div>
+					</div>
+					<!-- Images -->
+					<div class="row">
+						<section class="col-4 col-12-narrower">
+							<a href="../images/result/step1/roads.png" class="image output">
+								<img src="../images/result/step1/roads.png" alt="Roads Buffer" class="image output"/>
+							</a>
+							<header style="text-align: center;margin-bottom: 20px;">
+								<p>Roads Buffer</p>
+							</header>
+						</section>
+
+						<section class="col-4 col-12-narrower">
+							<a href="../images/result/step1/rivers.png" class="image output">
+								<img src="../images/result/step1/rivers.png" alt="Rivers Buffer" class="image output"/>
+							</a>
+							<header style="text-align: center;margin-bottom: 20px;">
+								<p>Rivers Buffer</p>
+							</header>
+						</section>
+
+						<section class="col-4 col-12-narrower">
+							<a href="../images/result/step1/faults.png" class="image output">
+								<img src="../images/result/step1/faults.png" alt="Faults Buffer" class="image output"/>
+							</a>
+							<header style="text-align: center;margin-bottom: 20px;">
+								<p>Faults Buffer</p>
+							</header>
+						</section>
+					</div>
+
+				<!-- Row 3 Landslides inventory -->
+					<div class="row">
+						<section class="col-4 col-12-narrower">
+							<a href="../images/result/step1/LZ_inventory.png" class="image output">
+								<img src="../images/result/step1/LZ_inventory.png" alt="DTM" class="image output"/>
+							</a>
+							<header style="text-align: center;margin-bottom: 20px;">
+								<p>Landslides Inventory in the area of Group 7</p>
+							</header>
+						</section>
+						</section>
+						<section class="col-8 col-12-narrower">
+							<div class="toggle-title">
+								<span class="arrow">&#9205;</span> <b>Landslides Inventory</b>
+							</div>
+							<p class="hidden indented-paragraph">
+								In this case study, we used landslide data from the past as part of the training data ,since ”the past and present are the key to the future”. By definition, landslide inventory data should include the type of landslide, the time of landslide occurrence, the status activity and the depth of landslides.We use data from the IFFI catalog, with each landslide represented as a point ,a line or a polygon.When representing a landslide as a point, the point is located at the landslide crown. When the surface of landslide data can be mapped, it can be presented by a line or adopt the survey scale.In the case of polygon, debris flows and translational or rotational slides and all linear landslides are included.
+							</p>
+						</section>
+					</div>
+				<!-- Row 4 Data Preprocessing -->
+					<div class="row">
+						<section class="col-12 col-12-narrower">
+							<li><h4>Data Preprocessing</h4></li>
+							<p>Data preprocessing includes the <b><em>reprojection, clipping, resampling, rasterization</em></b>
+								<br>During data preprocessing, we must ensure that the coordinate reference system, extent, and resolution of all layers are consistent with the DTM layer to obtain data consistency when generating the training set.
+							</p>
+							<table class="default">
+								<tbody>
+									<th style="background: rgba(124, 128, 129, 0.2)">Coordinate Reference System (CRS)</th>
+									<td>EPSG:32632 - WGS 84 / UTM zone 32N</td>
+								</tbody>
+								<tbody>
+									<th style="background: rgba(124, 128, 129, 0.2)">Pixel Resolution</th>
+									<td>5 Meters</td>
+								</tbody>
+								<tbody>
+									<th style="background: rgba(124, 128, 129, 0.2)">Extent</th>
+									<td>Vector Polygon of the area of Group 7</td>
+								</tbody>
+							</table>
+						</section>
+					</div>
+				</div>
+
+				<!-- Step 1 - Data Processing -->
+				<div class="wrapper style3 container special">
+					<header>
+						<h3>Step 1 - Data Processing</h3>
 					</header>
 
-					<!-- Step 0 - Data Explaination -->
-						<div class="wrapper style3 container">
-							<div>
-								<img src="../images/result/site-hori-osm.png" alt="Site Area" class="image output"/>
-								<header>
-									<h3>Step 0 - Data Pronunciation</h3>
-									<p>prounciation of the data we used for the analysis: <b><em>DUSAF, DTM, NVDI, Distance Characterization Data, and Landslides Inventory. </em></b>
-								</header>
-								
-							</div>
-							
-						<!-- Row 1 NVDI & DUSAF & DTM -->
-							<!-- Description -->
-							<div class="row">
-								<section class="col-12-narrower toggle-body">
-									<div class="toggle-title">
-										<span class="arrow">&#9205;</span> <strong>DUSAF (Digital Urban Surface Analysis Factors)</strong>
-									</div>
-									<p class="hidden indented-paragraph">
-										DUSAF stands for digital urban surface analysis factors, which is a raster that includes different factors about buildings, roads and other factors, provides land use and landcover information.By taking DUSAF into the source data of sampling the  training dataset, we can see how human activities change the natural environment and influence the risk of landslides.
-									</p>
-
-									<div class="toggle-title">
-										<span class="arrow">&#9205;</span> <strong>NDVI (Normalized Difference Vegetation Index)</strong>
-									</div>
-									<p class="hidden indented-paragraph">
-										Normalized Difference Vegetation Index (NDVI) is an indicator of the degree of greenness of a biome, which is not a physical attribute but is widely used to monitor ecosystems.The NDVI can be calculated using the formula:<br><span class="centered-formula">
-										\( \text{NDVI} = \frac{\text{NIR} - \text{RED}}{\text{NIR} + \text{RED}} \)</span>NIR and RED are the spectral reflectances measured in the near-infrared and red wavebands, respectively. This index ranges from -1 to +1, with higher values indicating healthier and denser vegetation.NDVI plays a rather important role in landslide susceptibility mapping, since the vegetation cover indicated by the NDVI can affect the slope stability, thus eventually affecting the output of analyzing landslide.
-									</p>
-
-									<div class="toggle-title">
-										<span class="arrow">&#9205;</span> <strong>DTM (Digital Terrain Model)</strong>
-									</div>
-									<p class="hidden indented-paragraph">
-									DTM is the raster data representing the surface of the terrain, known as Digital Terrain Models (DTMs), 
-									consisting of XYZ coordinates that provide detailed elevation information. This data shows the elevation and facilitates the calculation of 
-									various topographic attributes such as <em><b>slope, aspect, plan and profile curvature, and slope angle</b></em>. 
-									These attributes are critical in many geospatial analyses, including landslide susceptibility mapping.
-									In our case, we need to use the derived layers mentioned above to calculate the non landslide zones for training.
-									</p>
-								</section>
-							</div>
-							<!-- Images -->
-							<div class="row">
-								<section class="col-4 col-12-narrower">
-									<a href="../images/result/step1/NVDI.png" class="image output">
-										<img src="../images/result/step1/NVDI.png" alt="Site Area" class="image output"/>
-									</a>
-									<header style="text-align: center;margin-bottom: 20px;">
-										<p>NVDI</p>
-									</header>
-								</section>
-								</section>
-								<section class="col-4 col-12-narrower">
-									<a href="../images/result/step1/DUSAF.png" class="image output">
-										<img src="../images/result/step1/DUSAF.png" alt="Site Area" class="image output"/>
-									</a>
-									<header style="text-align: center;margin-bottom: 20px;">
-										<p>DUSAF</p>
-									</header>
-								</section>
-								</section>
-								<section class="col-4 col-12-narrower">
-									<a href="../images/result/step1/DTM.png" class="image output">
-										<img src="../images/result/step1/DTM.png" alt="DTM" class="image output"/>
-									</a>
-									<header style="text-align: center;margin-bottom: 20px;">
-										<p>DTM</p>
-									</header>
-								</section>
-								</section>
-							</div>
-
-						<!-- Row 2 Distance Characterization Data -->
-							<!-- Description -->
-							<div class="row">
-								<div class="toggle-body">
-									<div class="toggle-title">
-										<span class="arrow">&#9205;</span> <strong>Distance Characterization Data</strong>
-									</div>
-									<div class="hidden indented-paragraph">
-										<p>The data related to distance, including road, river network and distance to geological faults have important impacts  on landslides, which needs to be taken into consideration when predicting landslides.</p>
-										<li><strong>Roads</strong><br>obtained from OpenStreetMap as vector data, are analyzed by creating buffer zones at distances of 50, 100, 200, 500 meters, and beyond. These buffer zones help in understanding the influence of roads on nearby slopes.</li> 
-										<li><strong>Rivers</strong><br>mapped as vector data from OpenStreetMap, are analyzed by creating buffer zones at distances of 50, 100, 200, 500 meters, and more. These buffer zones help in understanding the impact of rivers on slopes since rivers can cause erosion at the base of slopes, which can eventually lead to landslides.</li> 
-										<li><strong>Faults</strong><br>can create zones of weakness in the earth's crust, making them more susceptible to landslides. We use the geodetic faults data from GeoPortale Lombardia, which are analyzed by creating buffer zones at distances of 50, 100, 200, 500 meters, and more. These buffer zones help in evaluating the impact of faults on surrounding areas.</li> 
-									</div>
-								</div>
-							</div>
-							<!-- Images -->
-							<div class="row">
-								<section class="col-4 col-12-narrower">
-									<a href="../images/result/step1/roads.png" class="image output">
-										<img src="../images/result/step1/roads.png" alt="Roads Buffer" class="image output"/>
-									</a>
-									<header style="text-align: center;margin-bottom: 20px;">
-										<p>Roads Buffer</p>
-									</header>
-								</section>
-
-								<section class="col-4 col-12-narrower">
-									<a href="../images/result/step1/rivers.png" class="image output">
-										<img src="../images/result/step1/rivers.png" alt="Rivers Buffer" class="image output"/>
-									</a>
-									<header style="text-align: center;margin-bottom: 20px;">
-										<p>Rivers Buffer</p>
-									</header>
-								</section>
-
-								<section class="col-4 col-12-narrower">
-									<a href="../images/result/step1/faults.png" class="image output">
-										<img src="../images/result/step1/faults.png" alt="Faults Buffer" class="image output"/>
-									</a>
-									<header style="text-align: center;margin-bottom: 20px;">
-										<p>Faults Buffer</p>
-									</header>
-								</section>
-							</div>
-
-						<!-- Row 3 Landslides inventory -->
-							<div class="row">
-								<section class="col-4 col-12-narrower">
-									<a href="../images/result/step1/LZ_inventory.png" class="image output">
-										<img src="../images/result/step1/LZ_inventory.png" alt="DTM" class="image output"/>
-									</a>
-									<header style="text-align: center;margin-bottom: 20px;">
-										<p>Landslides Inventory in the area of Group 7</p>
-									</header>
-								</section>
-								</section>
-								<section class="col-8 col-12-narrower">
-									<div class="toggle-title">
-										<span class="arrow">&#9205;</span> <b>Landslides Inventory</b>
-									</div>
-									<p class="hidden indented-paragraph">
-										In this case study, we used landslide data from the past as part of the training data ,since ”the past and present are the key to the future”. By definition, landslide inventory data should include the type of landslide, the time of landslide occurrence, the status activity and the depth of landslides.We use data from the IFFI catalog, with each landslide represented as a point ,a line or a polygon.When representing a landslide as a point, the point is located at the landslide crown. When the surface of landslide data can be mapped, it can be presented by a line or adopt the survey scale.In the case of polygon, debris flows and translational or rotational slides and all linear landslides are included.
-									</p>
-								</section>
-							</div>
-						<!-- Row 4 Data Preprocessing -->
-							<div class="row">
-								<section class="col-12 col-12-narrower">
-									<li><h4>Data Preprocessing</h4></li>
-									<p>Data preprocessing includes the <b><em>reprojection, clipping, resampling, rasterization</em></b>
-										<br>During data preprocessing, we must ensure that the coordinate reference system, extent, and resolution of all layers are consistent with the DTM layer to obtain data consistency when generating the training set.
-									</p>
-									<table class="default">
-										<tbody>
-											<th style="background: rgba(124, 128, 129, 0.2)">Coordinate Reference System (CRS)</th>
-											<td>EPSG:32632 - WGS 84 / UTM zone 32N</td>
-										</tbody>
-										<tbody>
-											<th style="background: rgba(124, 128, 129, 0.2)">Pixel Resolution</th>
-											<td>5 Meters</td>
-										</tbody>
-										<tbody>
-											<th style="background: rgba(124, 128, 129, 0.2)">Extent</th>
-											<td>Vector Polygon of the area of Group 7</td>
-										</tbody>
-									</table>
-								</section>
-							</div>
-						</div>
-
-					<!-- Step 1 - Data Processing -->
-						<div class="wrapper style3 container special">
+				<!-- Row 1 - Extracting Data from DTM -->
+					<div class="row">
+						<section class="col-8 col-12-narrower toggle-body">
 							<header>
-								<h3>Step 1 - Data Processing</h3>
+								<li><h4>QGIS Analysis: Slope, Aspect, Plan Curvature and Profile Curvature </h4></li>
+								<p><em>To define the no landslide zones,we need to extract 4 factors from the DTM, which are:slope angle,aspect,plane and profile curvature. 
+									To extract these factors,we use the <b>Processing-SAGA-Slope, aspect, curvature</b> provided in QGIS,and set the units as degrees. </em></p>
 							</header>
 
-						<!-- Row 1 - Extracting Data from DTM -->
-							<div class="row">
-								<section class="col-8 col-12-narrower toggle-body">
-									<header>
-										<li><h4>QGIS Analysis: Slope, Aspect, Plan Curvature and Profile Curvature </h4></li>
-										<p><em>To define the no landslide zones,we need to extract 4 factors from the DTM, which are:slope angle,aspect,plane and profile curvature. 
-											To extract these factors,we use the <b>Processing-SAGA-Slope, aspect, curvature</b> provided in QGIS,and set the units as degrees. </em></p>
-									</header>
-
-									<div class="toggle-title">
-										<span class="arrow">&#9205;</span> <strong>Slope</strong>
-									</div>
-									<p class="hidden indented-paragraph">
-										Slope is the incline of a slope, representing how much elevation changes over a certain horizontal distance.Slope angle is the angle between the slope surface and the horizontal plane, measured in degrees. It quantifies the steepness of the slope.
-									</p>
-
-									<div class="toggle-title">
-										<span class="arrow">&#9205;</span> <strong>Aspect</strong>
-									</div>
-									<p class="hidden indented-paragraph">
-										Describe the direction of a slope. how much elevation changes over a certain horizontal distance.
-									</p>
-
-									<div class="toggle-title">
-										<span class="arrow">&#9205;</span> <strong>Plan and Profile Curvature</strong>
-									</div>
-									<div class="hidden indented-paragraph">
-										<li>Plan Curvature <br>The curvature of the surface in a horizontal plane.It indicates the rate of change of aspect along a contour line and affects water flow and erosion.</li>
-										<li>Profile curvature <br> The curvature of the surface in a vertical plane. It reflects the rate of change of slope along a flow line and influences the acceleration and deceleration of water flow.</li>
-									</div>
-								</section>
-
-								<section class="col-4 col-12-narrower">
-									<a href="../images/result/step1/DTM.png" class="image output">
-										<img src="../images/result/step1/DTM.png" alt="DTM" class="image output"/>
-									</a>
-								</section>
+							<div class="toggle-title">
+								<span class="arrow">&#9205;</span> <strong>Slope</strong>
 							</div>
-						
-							<!-- outputs -->
-							<div class="row">
-								<section class="col-3 col-12-narrower">
-									<header style="text-align: center;">
-										<p>aspect</p>
-									</header>
-									<div>
-										<a href="../images/result/step1/aspect.png" class="image output">
-											<img src="../images/result/step1/aspect.png" alt="Site Area" class="image output"/>
-										</a>
-									</div>
-								</section>
+							<p class="hidden indented-paragraph">
+								Slope is the incline of a slope, representing how much elevation changes over a certain horizontal distance.Slope angle is the angle between the slope surface and the horizontal plane, measured in degrees. It quantifies the steepness of the slope.
+							</p>
 
-								<section class="col-3 col-12-narrower">
-									<header style="text-align: center;">
-										<p>slope</p>
-									</header>
-									<div>
-										<a href="../images/result/step1/slope.png" class="image output">
-											<img src="../images/result/step1/slope.png" alt="Site Area" class="image output"/>
-										</a>
-									</div>									
-								</section>
-
-								<section class="col-3 col-12-narrower">
-									<header style="text-align: center;">
-										<p>plan curvature</p>
-									</header>
-									<div>
-										<a href="../images/result/step1/plan.png" class="image output">
-											<img src="../images/result/step1/plan.png" alt="Site Area" class="image output"/>
-										</a>
-									</div>
-								</section>
-
-								<section class="col-3 col-12-narrower">
-									<header style="text-align: center;">
-										<p>profile curvature</p>
-									</header>
-									<div>
-										<a href="../images/result/step1/profile.png" class="image output">
-											<img src="../images/result/step1/profile.png" alt="Site Area" class="image output"/>
-										</a>
-									</div>
-								</section>
+							<div class="toggle-title">
+								<span class="arrow">&#9205;</span> <strong>Aspect</strong>
 							</div>
+							<p class="hidden indented-paragraph">
+								Describe the direction of a slope. how much elevation changes over a certain horizontal distance.
+							</p>
 
-						<!-- Row 2 - Define the Non-Landslide-Zone-->
-							<!-- Descriptions -->
-							<div class="row">
-								<section class="col-8 col-12-narrower toggle-body">
-									<header>
-										<li><h4>Define the No Landslide Zones (NLZ) </h4></li>
-										<p><em>No landslide zone refers to the areas with low possibility of landslides.
-											In our case study,we adopt the simplified no landslide zone definition derived from slope angle:
-											areas with <b>slopes below 20 degrees or above 70 degrees</b>are generally less prone to landslides.</em>
-										</p>
-									</header>
-
-									<div>
-										<ol><b>To obtain the NLZ layer, we follow these three steps</b>
-											<li>We use the raster calculator on the DTM layer to compute <em><b>"slope@1" &lt; 20 OR "slope@1" > 70 </b> </em>. In the resulting raster layer, No Landslide Zones correspond to pixels with a value of 1.</li>
-											<li>Use the <b><em> r.null </em></b> to remove null value in the resulting raster layer,and use the <b><em>Processing-GDAL-Raster analysis-Sieve</em></b> tool to filter the raster,in order to remove the small patches in the resulting raster.We tried three different filter thresholds: 10, 30, and 50.For our study area, a threshold of 30 works best.</li>
-											<li>Vectorize the resulting raster to obtain the polygons of NLZ. To achieve this ,we use the <b><em>Processing-GRASS-Raster-r.to.vect</em></b> tool, set the raster values as categories.</li>
-										</ol>
-									</div>
-								</section>
-
-								<section class="col-4 col-12-narrower">
-									<a href="../images/result/step1/NLZ_Vector.png" class="image output">
-										<img src="../images/result/step1/NLZ_Vector.png" alt="Vectorized NLZ" class="image output"/>
-									</a>
-									<header style="text-align: center;margin-bottom: 20px;">
-										<p>Final Vectorized No Landslide Zones (NLZ)</p>
-									</header>
-								</section>
+							<div class="toggle-title">
+								<span class="arrow">&#9205;</span> <strong>Plan and Profile Curvature</strong>
 							</div>
-
-							<!-- Sieved in different thresholds -->
-							<div class="row">
-								<section class="col-3 col-12-narrower">
-									<a href="../images/result/step1/NLZ_Sieved_10.png" class="image output">
-										<img src="../images/result/step1/NLZ_Sieved_10.png" alt="threshold 10" class="image output"/>
-									</a>
-									<header style="text-align: center;margin-bottom: 20px;">
-										<p>Sieved with threshold 10 <br> too much useless small scattered points</p>
-									</header>
-								</section>
-								<section class="col-3 col-12-narrower">
-									<a href="../images/result/step1/NLZ_Sieved_30.png" class="image output">
-										<img src="../images/result/step1/NLZ_Sieved_30.png" alt="threshold 30" class="image output"/>
-									</a>
-									<header style="text-align: center;margin-bottom: 20px;">
-										<p>Sieved with threshold 30 <br> removed most of excessively small scatter points </p>
-									</header>
-								</section>
-								<section class="col-3 col-12-narrower">
-									<a href="../images/result/step1/NLZ_Sieved_50.png" class="image output">
-										<img src="../images/result/step1/NLZ_Sieved_50.png" alt="threshold 50" class="image output"/>
-									</a>
-									<header style="text-align: center;margin-bottom: 20px;">
-										<p>Sieved with threshold 50 <br> relatively larger blocks have been retained</p>
-									</header>
-								</section>
-								<section class="col-3 col-12-narrower">
-									<a href="../images/result/step1/NLZ_Vector.png" class="image output">
-										<img src="../images/result/step1/NLZ_Vector.png" alt="threshold 70" class="image output"/>
-									</a>
-									<header style="text-align: center;margin-bottom: 20px;">
-										<p>Sieved with threshold 70 <br> relatively larger blocks have been retained</p>
-									</header>
-								</section>
+							<div class="hidden indented-paragraph">
+								<li>Plan Curvature <br>The curvature of the surface in a horizontal plane.It indicates the rate of change of aspect along a contour line and affects water flow and erosion.</li>
+								<li>Profile curvature <br> The curvature of the surface in a vertical plane. It reflects the rate of change of slope along a flow line and influences the acceleration and deceleration of water flow.</li>
 							</div>
+						</section>
 
-						<!-- Row 3 -Combine NLZ and LZ dataset-->
-							<!-- Descriptions -->
-							<div class="row">
-								<section class="col-8 col-12-narrower toggle-body">
-									<header>
-										<li><h4> Combine NLZ and LZ Dataset </h4></li>
-									</header>
-									<div>
-										<ol>
-											<li>Different<br> Since we adopt the simplified definition of non landslide zones, the non landslide zones may overlap with the landslide inventory polygons.We use the Processing-Vector Overlay-Difference tool to remove the overlapping part of two dataset.</li>
-											<li>Define 'Hazard'<br>To prepare the training/testing dataset ,we create a new field 'Hazard' in the attribute tables of both Landslide Inventory and NLZ,and assign 0 to the NLZ ,1 to the Landslide Inventory.
-											<li>Union<br> After this,perform union operation on the Landslide Inventory polygons.
-											</li>
-											<li>Manual Intervention<br>For the purpose of ensuring the training and validation data are evenly distributed, we manually modified the raster layer produced after the union operation. For a detailed description of this issue, see the "Problem Encountered" section.</li>
-										</ol>
-									</div>
-								</section>
-
-								<section class="col-4 col-12-narrower">
-									<header>
-										<h4><strong> <br></strong></h4>
-									</header>
-									<table class="default">
-										<thead>
-											<tr>
-												<th></th>
-												<th>Hazard Value</th>
-											</tr>
-										</thead>
-										<tbody>
-											<tr>
-												<th>Landslides Inventory</th> 
-												<td>1</td>
-											</tr>
-											<tr>
-												<th>No Landslide Zones</th>
-												<td>2</td>
-											</tr>
-										</tbody>
-									</table>
-								</section>
+						<section class="col-4 col-12-narrower">
+							<a href="../images/result/step1/DTM.png" class="image output">
+								<img src="../images/result/step1/DTM.png" alt="DTM" class="image output"/>
+							</a>
+						</section>
+					</div>
+				
+					<!-- outputs -->
+					<div class="row">
+						<section class="col-3 col-12-narrower">
+							<header style="text-align: center;">
+								<p>aspect</p>
+							</header>
+							<div>
+								<a href="../images/result/step1/aspect.png" class="image output">
+									<img src="../images/result/step1/aspect.png" alt="Site Area" class="image output"/>
+								</a>
 							</div>
+						</section>
 
-							<!-- Outputs -->
-							<div class="row">
-								<section class="col-4 col-12-narrower">
-									<a href="../images/result/step1/NLZ_Difference.png" class="image output">
-										<img src="../images/result/step1/NLZ_Difference.png" alt="NLZ Difference" class="image output"/>
-									</a>
-									<header style="text-align: center;margin-bottom: 20px;">
-										<p>NLZ Differenced with LZ inventory</p>
-									</header>
-								</section>
-								<section class="col-4 col-12-narrower">
-									<a href="../images/result/step1/LZ_NLZ_UNCUT.png" class="image output">
-										<img src="../images/result/step1/LZ_NLZ_UNCUT.png" alt="Union Result" class="image output"/>
-									</a>
-									<header style="text-align: center;margin-bottom: 20px;">
-										<p>NLZ & LZ Union Result </p>
-									</header>
-								</section>
-								<section class="col-4 col-12-narrower">
-									<a href="../images/result/step1/LZ_NLZ_CUT.png" class="image output">
-										<img src="../images/result/step1/LZ_NLZ_CUT.png" alt="manually cutting" class="image output"/>
-									</a>
-									<header style="text-align: center;margin-bottom: 20px;">
-										<p>Mannually Cut Excessively Large Pieces</p>
-									</header>
-								</section>
-							</div>
-						
-						<!-- Row 4 - Train_Testing Dataset -->
-							<!-- Descriptions -->
-							<div class="row">
-								<section class="col-12 col-12-narrower toggle-body">
-									<header>
-										<li><h4> Separation of Train_Test Dataset </h4></li>
-									</header>
-									<div>
-										<ol>
-											<b>The procedure for creating the training data is as follows:</b>
-											<li>For both landslide inventory and NLZ layers,define a training-testing ratio that will be used for the machine learning model.Use Processing-Vector Selection-Random Selection,to randomly select polygons according to the given ration,and invert the selection to switch between training and testing polygons.</li>
-											<li>Merge the processed Landslide Inventory layer with the one of NLZ.</li>
-											<li>After determining how many points are needed for the training data,we need to select points within the polygons based on the training and validation set ratios while ensuring a 1:1 point ratio according to the 'Hazard' value.Thus,we use the Select Features by Value tool and select according to the ‘Hazard’ and ‘Train_Test’field.After the selection,use Processing-Vector Creation-Random Points in layer bounds.Use the merged Landslide Inventory and NLZ layer and select selected feature only.
-											</li>
-											<li>Merge separately the training and testing layers into two point layers trainingPoints and testingPoints.</li>
-										</ol>
-									</div>
-								</section>
-							</div>
+						<section class="col-3 col-12-narrower">
+							<header style="text-align: center;">
+								<p>slope</p>
+							</header>
+							<div>
+								<a href="../images/result/step1/slope.png" class="image output">
+									<img src="../images/result/step1/slope.png" alt="Site Area" class="image output"/>
+								</a>
+							</div>									
+						</section>
 
-							<!-- Outputs -->
-							<div class="row">
-								<div class="toggle-body">
-									<li>To select the best-performing model for susceptibility mapping, we created two sets of data with training/testing ratios of 70/30 and 80/20, respectively. These sets will be used for randomly selecting the number of points input into the model within polygons.
-									During the point selection process, we chose 4000 points and 1000 points for the training and validation sets, respectively, resulting in a total of four sets of training data.
+						<section class="col-3 col-12-narrower">
+							<header style="text-align: center;">
+								<p>plan curvature</p>
+							</header>
+							<div>
+								<a href="../images/result/step1/plan.png" class="image output">
+									<img src="../images/result/step1/plan.png" alt="Site Area" class="image output"/>
+								</a>
+							</div>
+						</section>
+
+						<section class="col-3 col-12-narrower">
+							<header style="text-align: center;">
+								<p>profile curvature</p>
+							</header>
+							<div>
+								<a href="../images/result/step1/profile.png" class="image output">
+									<img src="../images/result/step1/profile.png" alt="Site Area" class="image output"/>
+								</a>
+							</div>
+						</section>
+					</div>
+
+				<!-- Row 2 - Define the Non-Landslide-Zone-->
+					<!-- Descriptions -->
+					<div class="row">
+						<section class="col-8 col-12-narrower toggle-body">
+							<header>
+								<li><h4>Define the No Landslide Zones (NLZ) </h4></li>
+								<p><em>No landslide zone refers to the areas with low possibility of landslides.
+									In our case study,we adopt the simplified no landslide zone definition derived from slope angle:
+									areas with <b>slopes below 20 degrees or above 70 degrees</b>are generally less prone to landslides.</em>
+								</p>
+							</header>
+
+							<div>
+								<ol><b>To obtain the NLZ layer, we follow these three steps</b>
+									<li>We use the raster calculator on the DTM layer to compute <em><b>"slope@1" &lt; 20 OR "slope@1" > 70 </b> </em>. In the resulting raster layer, No Landslide Zones correspond to pixels with a value of 1.</li>
+									<li>Use the <b><em> r.null </em></b> to remove null value in the resulting raster layer,and use the <b><em>Processing-GDAL-Raster analysis-Sieve</em></b> tool to filter the raster,in order to remove the small patches in the resulting raster.We tried three different filter thresholds: 10, 30, and 50.For our study area, a threshold of 30 works best.</li>
+									<li>Vectorize the resulting raster to obtain the polygons of NLZ. To achieve this ,we use the <b><em>Processing-GRASS-Raster-r.to.vect</em></b> tool, set the raster values as categories.</li>
+								</ol>
+							</div>
+						</section>
+
+						<section class="col-4 col-12-narrower">
+							<a href="../images/result/step1/NLZ_Vector.png" class="image output">
+								<img src="../images/result/step1/NLZ_Vector.png" alt="Vectorized NLZ" class="image output"/>
+							</a>
+							<header style="text-align: center;margin-bottom: 20px;">
+								<p>Final Vectorized No Landslide Zones (NLZ)</p>
+							</header>
+						</section>
+					</div>
+
+					<!-- Sieved in different thresholds -->
+					<div class="row">
+						<section class="col-3 col-12-narrower">
+							<a href="../images/result/step1/NLZ_Sieved_10.png" class="image output">
+								<img src="../images/result/step1/NLZ_Sieved_10.png" alt="threshold 10" class="image output"/>
+							</a>
+							<header style="text-align: center;margin-bottom: 20px;">
+								<p>Sieved with threshold 10 <br> too much useless small scattered points</p>
+							</header>
+						</section>
+						<section class="col-3 col-12-narrower">
+							<a href="../images/result/step1/NLZ_Sieved_30.png" class="image output">
+								<img src="../images/result/step1/NLZ_Sieved_30.png" alt="threshold 30" class="image output"/>
+							</a>
+							<header style="text-align: center;margin-bottom: 20px;">
+								<p>Sieved with threshold 30 <br> removed most of excessively small scatter points </p>
+							</header>
+						</section>
+						<section class="col-3 col-12-narrower">
+							<a href="../images/result/step1/NLZ_Sieved_50.png" class="image output">
+								<img src="../images/result/step1/NLZ_Sieved_50.png" alt="threshold 50" class="image output"/>
+							</a>
+							<header style="text-align: center;margin-bottom: 20px;">
+								<p>Sieved with threshold 50 <br> relatively larger blocks have been retained</p>
+							</header>
+						</section>
+						<section class="col-3 col-12-narrower">
+							<a href="../images/result/step1/NLZ_Vector.png" class="image output">
+								<img src="../images/result/step1/NLZ_Vector.png" alt="threshold 70" class="image output"/>
+							</a>
+							<header style="text-align: center;margin-bottom: 20px;">
+								<p>Sieved with threshold 70 <br> relatively larger blocks have been retained</p>
+							</header>
+						</section>
+					</div>
+
+				<!-- Row 3 -Combine NLZ and LZ dataset-->
+					<!-- Descriptions -->
+					<div class="row">
+						<section class="col-8 col-12-narrower toggle-body">
+							<header>
+								<li><h4> Combine NLZ and LZ Dataset </h4></li>
+							</header>
+							<div>
+								<ol>
+									<li>Different<br> Since we adopt the simplified definition of non landslide zones, the non landslide zones may overlap with the landslide inventory polygons.We use the Processing-Vector Overlay-Difference tool to remove the overlapping part of two dataset.</li>
+									<li>Define 'Hazard'<br>To prepare the training/testing dataset ,we create a new field 'Hazard' in the attribute tables of both Landslide Inventory and NLZ,and assign 0 to the NLZ ,1 to the Landslide Inventory.
+									<li>Union<br> After this,perform union operation on the Landslide Inventory polygons.
 									</li>
-								</div>
-
-								<header>
-									<h4>Dataset 80/20</h4>
-								</header>
-								<div class="col-6 col-12-narrower">
-									<div>
-										<a href="../images/result/step1/80_20_1000.png" class="image output">
-											<img src="../images/result/step1/80_20_1000.png" alt="NLZ Difference" class="image output"/>
-										</a>
-										<header>
-											<h4>1000 points</h4>
-										</header>
-										<table class="default">
-											<thead>
-												<tr>
-													<th></th>
-													<td>Hazard Value</td>
-													<td>Numbers of Points</td>
-												</tr>
-											</thead>
-											<tbody style="font-size: 0.9em">
-												<tr>
-													<th>Train</th> 
-													<td>1</td>
-													<td>400</td>
-												</tr>
-												<tr>
-													<th>Train	</th> 
-													<td>2</td>
-													<td>400</td>
-												</tr>
-												<tr>
-													<th>Test</th>
-													<td>1</td>
-													<td>100</td>
-												</tr>
-												<tr>
-													<th>Test</th>
-													<td>2</td>
-													<td>100</td>
-												</tr>
-											</tbody>
-										</table>
-									</div>
-								</div>
-								<div class="col-6 col-12-narrower">
-									<div>
-										<a href="../images/result/step1/80_20_4000.png" class="image output">
-											<img src="../images/result/step1/80_20_4000.png" alt="NLZ Difference" class="image output"/>
-										</a>
-										<header>
-											<h4>4000 points</h4>
-										</header>
-										<table class="default">
-											<thead>
-												<tr>
-													<th></th>
-													<td>Hazard Value</td>
-													<td>Numbers of Points</td>
-												</tr>
-											</thead>
-											<tbody style="font-size: 0.9em">
-												<tr>
-													<th>Train</th> 
-													<td>1</td>
-													<td>1600</td>
-												</tr>
-												<tr>
-													<th>Train	</th> 
-													<td>2</td>
-													<td>1600</td>
-												</tr>
-												<tr>
-													<th>Test</th>
-													<td>1</td>
-													<td>400</td>
-												</tr>
-												<tr>
-													<th>Test</th>
-													<td>2</td>
-													<td>400</td>
-												</tr>
-											</tbody>
-										</table>
-									</div>
-	
-								</div>
+									<li>Manual Intervention<br>For the purpose of ensuring the training and validation data are evenly distributed, we manually modified the raster layer produced after the union operation. For a detailed description of this issue, see the "Problem Encountered" section.</li>
+								</ol>
 							</div>
-							<div class="row">
-								<header>
-									<h4>Dataset 70/30</h4>
-								</header>
-								<div class="col-6 col-12-narrower">
-									<div>
-										<a href="../images/result/step1/70_30_1000.png" class="image output">
-											<img src="../images/result/step1/70_30_1000.png" alt="NLZ Difference" class="image output"/>
-										</a>
-										<header>
-											<h4>1000 points</h4>
-										</header>
-										<table class="default">
-											<thead>
-												<tr>
-													<th></th>
-													<td>Hazard Value</td>
-													<td>Numbers of Points</td>
-												</tr>
-											</thead>
-											<tbody style="font-size: 0.9em">
-												<tr>
-													<th>Train</th> 
-													<td>1</td>
-													<td>350</td>
-												</tr>
-												<tr>
-													<th>Train	</th> 
-													<td>2</td>
-													<td>350</td>
-												</tr>
-												<tr>
-													<th>Test</th>
-													<td>1</td>
-													<td>150</td>
-												</tr>
-												<tr>
-													<th>Test</th>
-													<td>2</td>
-													<td>150</td>
-												</tr>
-											</tbody>
-										</table>
-									</div>
-	
-								</div>
-								<div class="col-6 col-12-narrower">
-									<div>
-										<a href="../images/result/step1/70_30_4000.png" class="image output">
-											<img src="../images/result/step1/70_30_4000.png" alt="NLZ Difference" class="image output"/>
-										</a>
-										<header>
-											<h4>4000 points</h4>
-										</header>
-										<table class="default">
-											<thead>
-												<tr>
-													<th></th>
-													<td>Hazard Value</td>
-													<td>Numbers of Points</td>
-												</tr>
-											</thead>
-											<tbody style="font-size: 0.9em">
-												<tr>
-													<th>Train</th> 
-													<td>1</td>
-													<td>1400</td>
-												</tr>
-												<tr>
-													<th>Train	</th> 
-													<td>2</td>
-													<td>1400</td>
-												</tr>
-												<tr>
-													<th>Test</th>
-													<td>1</td>
-													<td>600</td>
-												</tr>
-												<tr>
-													<th>Test</th>
-													<td>2</td>
-													<td>600</td>
-												</tr>
-											</tbody>
-										</table>
-									</div>
-	
-								</div>
-							</div>										
-						</div>
+						</section>
+
+						<section class="col-4 col-12-narrower">
+							<header>
+								<h4><strong> <br></strong></h4>
+							</header>
+							<table class="default">
+								<thead>
+									<tr>
+										<th></th>
+										<th>Hazard Value</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<th>Landslides Inventory</th> 
+										<td>1</td>
+									</tr>
+									<tr>
+										<th>No Landslide Zones</th>
+										<td>2</td>
+									</tr>
+								</tbody>
+							</table>
+						</section>
+					</div>
+
+					<!-- Outputs -->
+					<div class="row">
+						<section class="col-4 col-12-narrower">
+							<a href="../images/result/step1/NLZ_Difference.png" class="image output">
+								<img src="../images/result/step1/NLZ_Difference.png" alt="NLZ Difference" class="image output"/>
+							</a>
+							<header style="text-align: center;margin-bottom: 20px;">
+								<p>NLZ Differenced with LZ inventory</p>
+							</header>
+						</section>
+						<section class="col-4 col-12-narrower">
+							<a href="../images/result/step1/LZ_NLZ_UNCUT.png" class="image output">
+								<img src="../images/result/step1/LZ_NLZ_UNCUT.png" alt="Union Result" class="image output"/>
+							</a>
+							<header style="text-align: center;margin-bottom: 20px;">
+								<p>NLZ & LZ Union Result </p>
+							</header>
+						</section>
+						<section class="col-4 col-12-narrower">
+							<a href="../images/result/step1/LZ_NLZ_CUT.png" class="image output">
+								<img src="../images/result/step1/LZ_NLZ_CUT.png" alt="manually cutting" class="image output"/>
+							</a>
+							<header style="text-align: center;margin-bottom: 20px;">
+								<p>Mannually Cut Excessively Large Pieces</p>
+							</header>
+						</section>
+					</div>
+				
+				<!-- Row 4 - Train_Testing Dataset -->
+					<!-- Descriptions -->
+					<div class="row">
+						<section class="col-6 col-12-narrower toggle-body">
+							<header>
+								<li><h4> Separation of Train_Test Dataset </h4></li>
+							</header>
+							<div>
+								<ol>
+									<b>The procedure for creating the training data is as follows:</b>
+									<li>For both landslide inventory and NLZ layers,define a training-testing ratio that will be used for the machine learning model.Use Processing-Vector Selection-Random Selection,to randomly select polygons according to the given ration,and invert the selection to switch between training and testing polygons.</li>
+									<li>Merge the processed Landslide Inventory layer with the one of NLZ.</li>
+									<li>After determining how many points are needed for the training data,we need to select points within the polygons based on the training and validation set ratios while ensuring a 1:1 point ratio according to the 'Hazard' value.Thus,we use the Select Features by Value tool and select according to the ‘Hazard’ and ‘Train_Test’field.After the selection,use Processing-Vector Creation-Random Points in layer bounds.Use the merged Landslide Inventory and NLZ layer and select selected feature only.
+									</li>
+									<li>Merge separately the training and testing layers into two point layers trainingPoints and testingPoints.</li>
+								</ol>
+							</div>
+
+							<header>
+								<h4>1000 points</h4>
+							</header>
+							<table class="default">
+								<thead>
+									<tr>
+										<th></th>
+										<td>Hazard Value</td>
+										<td>Numbers of Points</td>
+									</tr>
+								</thead>
+								<tbody style="font-size: 0.9em">
+									<tr>
+										<th>Train</th> 
+										<td>1</td>
+										<td>350</td>
+									</tr>
+									<tr>
+										<th>Train	</th> 
+										<td>2</td>
+										<td>350</td>
+									</tr>
+									<tr>
+										<th>Test</th>
+										<td>1</td>
+										<td>150</td>
+									</tr>
+									<tr>
+										<th>Test</th>
+										<td>2</td>
+										<td>150</td>
+									</tr>
+								</tbody>
+							</table>
+						</section>
+
+						<section class="col-6 col-12-narrower">
+							<div>
+								<a href="../images/result/step1/80_20_1000.png" class="image output">
+									<img src="../images/result/step1/80_20_1000.png" alt="NLZ Difference" class="image output"/>
+								</a>
+							</div>
+							<div class="toggle-body">
+								<p><li>To select the best-performing model for susceptibility mapping, we created two sets of data with training/testing ratios of 70/30 and 80/20, respectively. Also did some experiment with different total number of the dataset with 4000 points and 1000 points, respectively, resulting in a total of four sets of training data.
+								</li><p>
+							</div>
+							<footer>
+								<ul class="buttons">
+									<li><a href="result.html" class="button ">Check More in Challenges Page</a></li>
+								</ul>
+						</section>
+					</div>
+						
+				</div>
 
 				<!-- Step 2 - Susceptibility Mapping Process -->
 				<div class="wrapper style3 container special gtr-150">
@@ -788,7 +655,7 @@
 				</footer>
 				</div>				
 
-				</article>
+			</article>
 
 			<!-- CTA -->
 			<div id="cta">

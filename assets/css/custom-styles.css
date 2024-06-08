@@ -217,6 +217,48 @@
         /* margin: 0; */
     }
 
+
+
+.flex-container {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.flex-item {
+    padding: 20px;
+    cursor: pointer;
+    background-color: #f0f0f0;
+    flex-grow: 1;
+    text-align: center;
+}
+
+.flex-item:hover {
+    background-color: #e0e0e0;
+}
+
+.row.special {
+    margin-top: 20px;
+}
+
+.image-container {
+    overflow: hidden;
+}
+
+.image-container img {
+    display: block;
+    width: 100%;
+    height: auto;
+    transform: scale(0.8);
+    transition: transform 0.5s ease;
+}
+
+.image-container img.show {
+    transform: scale(1);
+}
+
+
+/* math */
     .centered-formula {
         text-align: center;
         display: block;
