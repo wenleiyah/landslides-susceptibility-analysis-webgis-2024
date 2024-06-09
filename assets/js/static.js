@@ -58,5 +58,3 @@ function showDataset(datasetId) {
         activeFlexItem.classList.add('active');
     }
 }
-
-

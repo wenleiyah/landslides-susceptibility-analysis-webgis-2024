@@ -26,7 +26,7 @@
 
 			<!-- Header -->
 				<header id="header" class="alt">
-					<h1 id="logo"><a href="../index.html">Homepage</a></h1>
+					<h1><a href="../index.html">Homepage</a></h1>
 					<nav id="nav"> 
 						<ul>
 							<li class="current"><a href="../index.html">HOME</a></li>
@@ -47,7 +47,7 @@
 			<!-- Main -->
 			<article id="main">
 				<header class="container special">
-					<!-- <span class="icon solid fa-tablet-alt"></span> -->
+					<span class="icon solid fa-tablet-alt"></span>
 					<h2> <strong>Workflow</strong></h2>
 					<p>the data we are using and how we process the analysis</p>
 				</header>
@@ -365,11 +365,11 @@
 							</header>
 						</section>
 						<section class="col-3 col-12-narrower">
-							<a href="../images/result/step1/NLZ_Vector.png" class="image output">
-								<img src="../images/result/step1/NLZ_Vector.png" alt="threshold 70" class="image output"/>
+							<a href="../images/result/step1/NLZ_Sieved_70.png" class="image output">
+								<img src="../images/result/step1/NLZ_Sieved_70.png" alt="threshold 70" class="image output"/>
 							</a>
 							<header style="text-align: center;margin-bottom: 20px;">
-								<p>Sieved with threshold 70 <br> relatively larger blocks have been retained</p>
+								<p>Sieved with threshold 70 <br> filtered out excess blocks</p>
 							</header>
 						</section>
 					</div>
@@ -641,7 +641,8 @@
 					<div class="row">
 						<section class="col-12 col-12-narrower toggle-body">
 							<ul>
-								<li>,..	</li>
+								<li> In the WebGIS section, we use OSM basemap and Stadia Maps layers as basemaps. 
+									We published the clipped original data, landslide susceptibility map, population map, and exposure assessment map on the Polimi Geoserver. The maps are displayed using WMS services, and a pop-up feature has been added for the currently top-displayed raster data. Clicking on a point will show the corresponding grayscale value。	</li>
 							</ul>
 						</section>
 					</div>							
@@ -651,35 +652,32 @@
 				<div class="special container">
 				<footer>
 					<ul class="buttons">
-						<li><a href="pages/result.html" class="button primary scrolly">Check Result</a></li>
+						<li><a href="../pages/result.html" class="button primary scrolly" style="min-width: 18em;">Check Result</a></li>
+						<li><a href="../pages/webgis.html" class="button" style="min-width: 18em;">WebGIS</a></li>
 					</ul>
 				</footer>
 				</div>				
 
 			</article>
 
-			<!-- CTA -->
+			<!-- Footer -->
 			<div id="cta">
 				<header>
 					<h2>Get <strong>Cource Code</strong>?</h2>
 				</header>
 				<footer>
-					<ul class="buttons">
-						<li><a href="https://github.com/wenleiyah/webgis-class-2024-g7" class="button primary">Github Link</a></li>
+					<ul class="buttons" style="min-width: 18em;">
+						<li><a href="https://github.com/wenleiyah/webgis-class-2024-g7" class="button primary" style="min-width: 18em;">Github Link</a></li>
 						<!-- <li><a href="pages/workflow.html" class="button">Go to Workflow</a></li> -->
 					</ul>
-				</footer>
-
-			</div>	
-
-			<!-- Footer -->
-				<footer id="footer">
-
+					<div id="footer">
 					<ul class="copyright">
-						<li>&copy; My WebGIS</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+						<li>&copy; Politecnico di Milano</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
 					</ul>
-
+					</div>
 				</footer>
+			</div>
+
 
 		</div>
 

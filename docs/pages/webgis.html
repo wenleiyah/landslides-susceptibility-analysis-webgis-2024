@@ -16,16 +16,37 @@
 
     <!-- Static files are imported from public folder -->
     
+    <!-- <link rel="stylesheet" href="../assets/css/main.css" /> -->
 
     <!-- Modules are imported normally -->
     
-  <script type="module" crossorigin src="/webgis-class-2024-g7/assets/webgis.de7357a7.js"></script>
+  <script type="module" crossorigin src="/webgis-class-2024-g7/assets/webgis.bdb626ec.js"></script>
   <link rel="modulepreload" crossorigin href="/webgis-class-2024-g7/assets/modulepreload-polyfill.c7c6310f.js">
   <link rel="stylesheet" href="/webgis-class-2024-g7/assets/webgis.f3c649f1.css">
-  <link rel="stylesheet" href="/webgis-class-2024-g7/assets/custom-styles.7460d338.css">
+  <link rel="stylesheet" href="/webgis-class-2024-g7/assets/custom-styles.fd7f7c85.css">
 </head>
 
 <body>
+    <!-- header -->
+     <!-- <section>
+        <header id="header" class="alt">
+            <h1 id="logo"><a href="../index.html">Homepage</a></h1>
+            <nav id="nav"> 
+                <ul>
+                    <li class="current"><a href="../index.html">HOME</a></li>
+                    <li class="current"><a href="workflow.html">Workflow</a></li>
+                    <li class="current"><a href="result.html">Conclusion</a></li>
+                    <li class="current"><a href="webgis.html">WebGIS</a></li>
+                </ul>
+            </nav>
+        </header>
+    
+        <div id="banner" class="custom-banner">
+            <div class="banner-transparency"></div>
+        </div>
+     </section> -->
+
+
     <div class="w-100 vh-100">
         <div class="floating-button">
             <a href="../index.html" class="btn btn-primary">Go Home</a>
@@ -33,11 +54,14 @@
         <div id="map"></div>
 
         <!--The structure for the popup-->
-        <!-- <div id="popup" class="ol-popup">
+        <div id="popup" class="ol-popup">
             <a href="#" id="popup-closer" class="ol-popup-closer">&times;</a>
             <div id="popup-content">
             </div>
-        </div> -->
+        </div>
+
+        <div id="custom-control" class="coordinate">
+        </div>
     </div>
 
     <!--Scripts-->
