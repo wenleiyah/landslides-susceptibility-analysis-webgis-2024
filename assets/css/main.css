@@ -2208,17 +2208,6 @@ em,i {
 			}
 			
 			
-		input[type="button"].head,
-		input[type="submit"].head,
-		input[type="reset"].head,
-		button.head,
-		.button.head {
-			background: #3f6e47;
-			border-color: #3f6e47;
-			color: #fff !important;
-			margin-bottom: 100px;
-			margin-top: 200px;
-		}
 
 
 		input[type="button"].fit,
@@ -2288,42 +2277,6 @@ em,i {
 					border-color: inherit !important;
 					color: #fff !important;
 				}
-
-			.wrapper.style2-2 {
-				background-color: #2e7947;
-				background-image: url("images/light-tl.svg"), url("images/light-tr.svg");
-				background-position: top left, top right;
-				background-repeat: no-repeat, no-repeat;
-				background-size: 25em, 25em;
-				color: #fff;
-			}
-	
-				.wrapper.style2-2 input[type="button"]:hover,
-				.wrapper.style2-2 input[type="submit"]:hover,
-				.wrapper.style2-2 input[type="reset"]:hover,
-				.wrapper.style2-2 button:hover,
-				.wrapper.style2-2 .button:hover {
-					background: rgba(255, 255, 255, 0.15) !important;
-				}
-	
-				.wrapper.style2-2 input[type="button"].primary,
-				.wrapper.style2-2 input[type="submit"].primary,
-				.wrapper.style2-2 input[type="reset"].primary,
-				.wrapper.style2-2 button.primary,
-				.wrapper.style2-2 .button.primary {
-					background: #fff;
-					border-color: #fff;
-					color: #83d3c9 !important;
-				}
-	
-					.wrapper.style2-2 input[type="button"].primary:hover,
-					.wrapper.style2-2 input[type="submit"].primary:hover,
-					.wrapper.style2-2 input[type="reset"].primary:hover,
-					.wrapper.style2-2 button.primary:hover,
-					.wrapper.style2-2 .button.primary:hover {
-						border-color: inherit !important;
-						color: #fff !important;
-					}
 	
 		.wrapper.style3 {
 			background: #fff;
