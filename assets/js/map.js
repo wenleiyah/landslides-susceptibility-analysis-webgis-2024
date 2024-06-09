@@ -370,8 +370,8 @@ closer.onclick = function () {
 
 // Handle right click for hiding pop-up
 map.getViewport().addEventListener('contextmenu', function (event) {
-    event.preventDefault(); // 阻止默认的右键菜单
-    popup.setPosition(undefined); // 隐藏弹出窗口
+    event.preventDefault(); 
+    popup.setPosition(undefined); 
 });
 
 // Adding map event for pointermove
