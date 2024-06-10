@@ -58,3 +58,10 @@ function showDataset(datasetId) {
         activeFlexItem.classList.add('active');
     }
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    const image = document.getElementById('image');
+    const imageLink = document.getElementById('image-link');
+    const src = image.getAttribute('src');
+    imageLink.setAttribute('href', src);
+});
