@@ -14,11 +14,12 @@
 		<link rel="stylesheet" href="../assets/css/main.css" />
 		<link rel="stylesheet" href="../assets/css/custom-styles.css" />
 	    <!-- Modules are imported normally -->
-		<script defer src="../assets/js/static.js"></script>
+		<script type="module" src="../assets/js/static.js"></script>
 
 		<!-- MathJax -->
 		<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
 		<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+		
 		<!-- Chart -->
 		<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
@@ -51,7 +52,7 @@
 					<header class="special container">
 						<span class="icon solid fa-globe"></span>
 						<h2> <strong>Conclusion</strong></h2>
-						<p>the exposure asseassment result, and technical analysis of the project</p>
+						<h4>the exposure asseassment result, and technical analysis of the project</h4>
 					</header>
 					
 					<!-- Exposure Assessment -->
@@ -184,19 +185,22 @@
 								<p>To select the best-performing model for susceptibility mapping, we created two sets of data with training/testing ratios of 70/30 and 80/20, respectively. 
 									Also did some experiment with different total number of the dataset with 4000 points and 1000 points, respectively, resulting in a total of four sets of training data.  </p>
 							</section>
-							<section class="col-12 col-12-narrower">
-								<div class="flex-container">
-									<div class="flex-item" onclick="showDataset('dataset-80-20')">Dataset 80/20</div>
-									<div class="flex-item" onclick="showDataset('dataset-70-30')">Dataset 70/30</div>
-								</div>
-							</section>
+							<div class="special container">
+								<header>
+									<h4>Click Button to See Different Dataset</h4>
+								</header>
+								<ul class="buttons">
+									<li><a href="#" class="button small clicked clickable" data-target="dataset-80-20">Dataset 80-20</a></li>
+									<li><a href="#" class="button small clickable" data-target="dataset-70-30">Dataset 70-30</a></li>
+								</ul>
+							</div>
 						</div>
 
 						<div id="dataset-80-20" class="row special">
 							<div class="col-6 col-12-narrower">
 								<div class="image-container">
 									<a href="../images/result/step1/80_20_1000.png" class="image">
-										<img src="../images/result/step1/80_20_1000.png" alt="NLZ Difference" class="image output"/>
+										<img src="../images/result/step1/80_20_1000.png" alt="80/20-1000 points" class="image output show"/>
 									</a>
 									<header>
 										<h4>1000 points</h4>
@@ -237,7 +241,7 @@
 							<div class="col-6 col-12-narrower">
 								<div class="image-container">
 									<a href="../images/result/step1/80_20_4000.png" class="image">
-										<img src="../images/result/step1/80_20_4000.png" alt="NLZ Difference" class="image output"/>
+										<img src="../images/result/step1/80_20_4000.png" alt="NLZ Difference" class="image output show"/>
 									</a>
 									<header>
 										<h4>4000 points</h4>
@@ -281,7 +285,7 @@
 							<div class="col-6 col-12-narrower">
 								<div class="image-container">
 									<a href="../images/result/step1/70_30_1000.png" class="image" style="background: transparent;">
-										<img src="../images/result/step1/70_30_1000.png" alt="NLZ Difference" class="image output"/>
+										<img src="../images/result/step1/70_30_1000.png" alt="NLZ Difference" class="image output hidden"/>
 									</a>
 									<header>
 										<h4>1000 points</h4>
@@ -323,7 +327,7 @@
 							<div class="col-6 col-12-narrower">
 								<div class="image-container">
 									<a href="../images/result/step1/70_30_4000.png" class="image">
-										<img src="../images/result/step1/70_30_4000.png" alt="NLZ Difference" class="image output"/>
+										<img src="../images/result/step1/70_30_4000.png" alt="NLZ Difference" class="image output hidden"/>
 									</a>
 									<header>
 										<h4>4000 points</h4>

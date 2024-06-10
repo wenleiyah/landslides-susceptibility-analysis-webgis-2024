@@ -15,57 +15,37 @@ document.addEventListener('DOMContentLoaded', (event) => {
             }
         });
     });
-
-    showDataset('dataset-80-20');
     
 });
 
-
-function showDataset(datasetId) {
-    // 隐藏所有的special row并移除active类
-    const specialRows = document.querySelectorAll('.row.special');
-    specialRows.forEach(row => {
-        row.classList.add('hidden');
-        row.classList.remove('active');
-        const images = row.querySelectorAll('img');
-        images.forEach(img => {
-            img.classList.remove('show');
-        });
-    });
-
-    // 移除所有flex-item的active类
-    const flexItems = document.querySelectorAll('.flex-item');
-    flexItems.forEach(item => {
-        item.classList.remove('active');
-    });
-
-    // 显示选中的special row并添加active类
-    const selectedRow = document.getElementById(datasetId);
-    if (selectedRow) {
-        selectedRow.classList.remove('hidden');
-        selectedRow.classList.add('active');
-        setTimeout(() => {
-            const images = selectedRow.querySelectorAll('img');
-            images.forEach(img => {
-                img.classList.add('show');
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.clickable').forEach(button => {
+        button.addEventListener('click', function(event) {
+            event.preventDefault(); 
+            
+            const targetId = this.getAttribute('data-target');
+            
+            document.querySelectorAll('.row.special').forEach(div => {
+                div.style.display = 'none';
+                div.querySelectorAll('img').forEach(img => {
+                    img.classList.remove('show');
+                });
             });
-        }, 10); // 确保隐藏状态改变后再添加动画类
-    }
+            
+            const targetElement = document.getElementById(targetId);
+            targetElement.style.display = 'flex';
 
-    // 给对应的flex-item添加active类
-    const activeFlexItem = Array.from(flexItems).find(item => item.textContent.trim() === datasetId.split('-').join(' '));
-    if (activeFlexItem) {
-        activeFlexItem.classList.add('active');
-    }
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-    const images = document.querySelectorAll('.image.output img');
-    images.forEach(img => {
-        const src = img.getAttribute('src');
-        const link = img.closest('a');
-        if (link) {
-            link.setAttribute('href', src);
-        }
+            setTimeout(() => {
+                targetElement.querySelectorAll('img').forEach(img => {
+                    img.classList.add('show');
+                });
+            }, 10);
+ 
+            document.querySelectorAll('.clickable').forEach(btn => {
+                btn.classList.remove('clicked');
+            });
+            
+            this.classList.add('clicked');
+        });
     });
 });
