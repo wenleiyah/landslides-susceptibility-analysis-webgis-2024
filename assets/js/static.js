@@ -60,8 +60,12 @@ function showDataset(datasetId) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    const image = document.getElementById('image');
-    const imageLink = document.getElementById('image-link');
-    const src = image.getAttribute('src');
-    imageLink.setAttribute('href', src);
+    const images = document.querySelectorAll('.image.output img');
+    images.forEach(img => {
+        const src = img.getAttribute('src');
+        const link = img.closest('a');
+        if (link) {
+            link.setAttribute('href', src);
+        }
+    });
 });
