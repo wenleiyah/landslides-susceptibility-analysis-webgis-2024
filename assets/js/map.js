@@ -30,10 +30,9 @@ let stadiaWatercolor = new Tile({
 })
 
 // Add the bing base map
-var BING_MAPS_KEY = "AnIE_qaoODema2iIcuoFcJVPb4rWCED2dvA1OHQZPC";
-//var BING_MAPS_KEY = "AqbDxABFot3cmpxfshRqLmg8UTuPv_bg69Ej3d5AkGmjaJy_w5eFSSbOzoHeN2_H";
+var BING_MAPS_KEY = "AnIE_qaoODema2iIcuoFcJVPb4rWCED2dvA1OHQZPCC0j11unnSm2-o2lWPbWid_";
 var bingRoads = new Tile({
-    title: 'Bing Maps—Roads',
+    title: 'Bing Maps',
     type: 'base',
     visible: false,
     source: new BingMaps({

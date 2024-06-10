@@ -11,10 +11,6 @@
     top: 10px;
 }
 
-.wrapper.style2 {
-    /* This is an example of how to change colors in the template */
-    background-color: #3f6e47;
-}
     .wrapper.style2-2 {
         background-color: #3f6e47;
         background-image: url("images/light-tl.svg"), url("images/light-tr.svg");
