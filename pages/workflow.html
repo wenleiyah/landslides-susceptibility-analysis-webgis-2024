@@ -387,7 +387,7 @@
 							<div>
 								<ol>
 									<li>Different<br> Since we adopt the simplified definition of non landslide zones, the non landslide zones may overlap with the landslide inventory polygons.We use the Processing-Vector Overlay-Difference tool to remove the overlapping part of two dataset.</li>
-									<li>Define 'Hazard'<br>To prepare the training/testing dataset ,we create a new field 'Hazard' in the attribute tables of both Landslide Inventory and NLZ,and assign 0 to the NLZ ,1 to the Landslide Inventory.
+									<li>Define 'Hazard'<br>To prepare the training/testing dataset ,we create a new field 'Hazard' in the attribute tables of both Landslide Inventory and NLZ,and assign <b>1 to the NLZ,2 to the Landslide Inventory.</b>
 									<li>Union<br> After this,perform union operation on the Landslide Inventory polygons.
 									</li>
 									<li>Manual Intervention<br>For the purpose of ensuring the training and validation data are evenly distributed, we manually modified the raster layer produced after the union operation. For a detailed description of this issue, see the "Problem Encountered" section.</li>
@@ -627,26 +627,30 @@
 									</div>		
 
 								<li><b>Analysis with csv</b><br>
-									To compute the population counts in each susceptibility class, we use the tool Processing > Raster Analysis > Raster layer zonal statistics. Set the input layer to the clipped population raster dataset and the zones layer to the resampled susceptibility raster map. Finally, plot a pie chart showing the percentage of the population in each susceptibility class.	</li>
-
-									<div class="row">
-										<section class="col-8 col-12-narrower">
-											<li><b>Alpine Pastures</b><br>
-												Considering the characteristic of fewer buildings in the study area and the potential hazards posed by landslides, we chose the category of alpine pastures for the exposure assessment.(alpine pasture data source:<a href="https://www.geoportale.regione.lombardia.it/metadati?p_p_id=detailSheetMetadata_WAR_gptmetadataportlet&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_detailSheetMetadata_WAR_gptmetadataportlet_identifier=r_lombar%3Ad5506bba-413d-41da-a082-0e87eee78afb&_jsfBridgeRedirect=true#">Geoportale della Lombardia</a>). 
-												<br> There are four alpine pastures in the study area: Alpe Meden, Alpe Rhon con Campondola e Campo, Alpe Piano-Ortiche con Aiada, and Alpe Piano dei Cavalli con Malgina e Combolo. We rasterized these areas using the DTM of the study area as the content. Then, using a method similar to processing population data, we performed calculations using the reclassified landslide susceptibility map. Finally, we obtained the exposure assessment for the alpine pasture characteristic.
-											</li>
-										</section>
-
-										<section class="col-4 col-12-narrower">
-											<a href="../images/result/step3/Alpine_pastures.png" class="image output">
-												<img src="../images/result/step3/Alpine_pastures.png" alt="Alpine_pastures" class="image output"/>
-											</a>
-											<header style="text-align: center;margin-bottom: 20px;">
-												<p>Alpine Pastures in our Area</p>
-											</header>
-										</section>
-									</div>		
+									To compute the population counts in each susceptibility class, we use the tool Processing > Raster Analysis > Raster layer zonal statistics. Set the input layer to the clipped population raster dataset and the zones layer to the resampled susceptibility raster map. Finally, plot a pie chart showing the percentage of the population in each susceptibility class.	</li>	
 							</ol>
+
+							<div class="row">
+								<section class="col-8 col-12-narrower">
+									<header>
+										<ul><li><h4>Alpine Pastures</h4></li></ul>
+									</header>
+									<ol>
+										<li>Considering the characteristic of fewer buildings in the study area and the potential hazards posed by landslides, we chose the category of alpine pastures for the exposure assessment.(alpine pasture data source:<a href="https://www.geoportale.regione.lombardia.it/metadati?p_p_id=detailSheetMetadata_WAR_gptmetadataportlet&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_detailSheetMetadata_WAR_gptmetadataportlet_identifier=r_lombar%3Ad5506bba-413d-41da-a082-0e87eee78afb&_jsfBridgeRedirect=true#">Geoportale della Lombardia</a>).</li> 
+										<li> There are four alpine pastures in the study area: Alpe Meden, Alpe Rhon con Campondola e Campo, Alpe Piano-Ortiche con Aiada, and Alpe Piano dei Cavalli con Malgina e Combolo. We rasterized these areas using the DTM of the study area as the content. Then, using a method similar to processing population data, we performed calculations using the reclassified landslide susceptibility map. Finally, we obtained the exposure assessment for the alpine pasture characteristic.
+										</li>
+									</ol>
+								</section>
+
+								<section class="col-4 col-12-narrower">
+									<a href="../images/result/step3/Alpine_pastures.png" class="image output">
+										<img src="../images/result/step3/Alpine_pastures.png" alt="Alpine_pastures" class="image output"/>
+									</a>
+									<header style="text-align: center;margin-bottom: 20px;">
+										<p>Alpine Pastures in our Area</p>
+									</header>
+								</section>
+							</div>	
 						</section>
 					</div>
 				
