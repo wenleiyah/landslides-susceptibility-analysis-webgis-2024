@@ -241,10 +241,10 @@ button.head,
     justify-content: flex-end;
 }
 
-/* toggle paragraph */
 .hidden {
     display: none;
 }
+
 
 .toggle-body {
     text-align: left;

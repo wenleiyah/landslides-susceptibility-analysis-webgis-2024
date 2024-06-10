@@ -269,6 +269,10 @@ em,i {
 		box-sizing: border-box;
 		align-items: stretch;
 	}
+	
+		.row.hidden {
+			display: none;
+		}
 
 		.row > * {
 			box-sizing: border-box;
