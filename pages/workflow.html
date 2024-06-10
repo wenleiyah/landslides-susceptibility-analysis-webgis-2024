@@ -386,11 +386,11 @@
 							</header>
 							<div>
 								<ol>
-									<li>Different<br> Since we adopt the simplified definition of non landslide zones, the non landslide zones may overlap with the landslide inventory polygons.We use the Processing-Vector Overlay-Difference tool to remove the overlapping part of two dataset.</li>
-									<li>Define 'Hazard'<br>To prepare the training/testing dataset ,we create a new field 'Hazard' in the attribute tables of both Landslide Inventory and NLZ,and assign <b>1 to the NLZ,2 to the Landslide Inventory.</b>
-									<li>Union<br> After this,perform union operation on the Landslide Inventory polygons.
+									<li><b>Different</b><br> Since we adopt the simplified definition of non landslide zones, the non landslide zones may overlap with the landslide inventory polygons.We use the <em><b>Processing-Vector Overlay-Difference</b></em> tool to remove the overlapping part of two dataset.</li>
+									<li><b>Define 'Hazard'</b><br>To prepare the training/testing dataset ,we create a new field <b>'Hazard'</b> in the attribute tables of both Landslide Inventory and NLZ,and assign <b>1 to the NLZ,2 to the Landslide Inventory.</b>
+									<li><b>Union</b><br> After this,perform <b><em>union</em></b> operation on the Landslide Inventory polygons.
 									</li>
-									<li>Manual Intervention<br>For the purpose of ensuring the training and validation data are evenly distributed, we manually modified the raster layer produced after the union operation. For a detailed description of this issue, see the "Problem Encountered" section.</li>
+									<li><b>Manual Intervention</b><br>For the purpose of ensuring the training and validation data are evenly distributed, we <b>manually modified</b> the vector layer produced after the union operation. For a detailed description of this issue, see the "Problem Encountered" section.</li>
 								</ol>
 							</div>
 						</section>
@@ -458,9 +458,9 @@
 							<div>
 								<ol>
 									<b>The procedure for creating the training data is as follows:</b>
-									<li>For both landslide inventory and NLZ layers,define a training-testing ratio that will be used for the machine learning model.Use Processing-Vector Selection-Random Selection,to randomly select polygons according to the given ration,and invert the selection to switch between training and testing polygons.</li>
+									<li>For both landslide inventory and NLZ layers,define a training-testing ratio that will be used for the machine learning model.Here we tried <b>both 80/20 and 70/30</b> dataset. Use <b><em>Processing-Vector Selection-Random Selection</em></b>,to randomly select polygons according to the given ration, and invert the selection to switch between training and testing polygons.</li>
 									<li>Merge the processed Landslide Inventory layer with the one of NLZ.</li>
-									<li>After determining how many points are needed for the training data,we need to select points within the polygons based on the training and validation set ratios while ensuring a 1:1 point ratio according to the 'Hazard' value.Thus,we use the Select Features by Value tool and select according to the ‘Hazard’ and ‘Train_Test’field.After the selection,use Processing-Vector Creation-Random Points in layer bounds.Use the merged Landslide Inventory and NLZ layer and select selected feature only.
+									<li>After determining how many points are needed for the training data,we need to select points within the polygons based on the training and validation set ratios while ensuring a 1:1 point ratio according to the 'Hazard' value.Thus,we use the Select Features by Value tool and select according to the <b>'Hazard' and 'Train_Test'</b> field. After the selection,use <b><em>Processing-Vector Creation-Random Points in layer bounds.</em></b> Use the merged Landslide Inventory and NLZ layer and select selected feature only.
 									</li>
 									<li>Merge separately the training and testing layers into two point layers trainingPoints and testingPoints.</li>
 								</ol>
@@ -509,7 +509,7 @@
 								</a>
 							</div>
 							<div class="toggle-body">
-								<p><li>To select the best-performing model for susceptibility mapping, we created two sets of data with training/testing ratios of 70/30 and 80/20, respectively. Also did some experiment with different total number of the dataset with 4000 points and 1000 points, respectively, resulting in a total of four sets of training data.
+								<p><li><b>To select the best-performing model for susceptibility mapping, we created two sets of data with training/testing ratios of 70/30 and 80/20, respectively. Also did some experiment with different total number of the dataset with 4000 points and 1000 points, respectively, resulting in a total of four sets of training data.</b>
 								</li><p>
 							</div>
 							<footer>
@@ -535,10 +535,10 @@
 							</header>
 							<ol>
 								<li><b>Training procedure</b><br>
-								Before training,we need to remove NULL value in all attributes of datasets by using the Field Calculator tool to update the value of each attribute column, replacing null values with 999.
-								We use the plugin dzetsaka for classifying hazard.For each group of training/testing data,we choose Random Forest as classifier,and generate a virtual raster layer containing all the raster layers for training.</li>											
+								Before training,we need to remove NULL value in all attributes of datasets by using the <b><em>Field Calculator</em></b> tool to update the value of each attribute column, replacing null values with 9999.
+								We use the plugin <b><em>dzetsaka</em></b> for classifying hazard. For each group of training/testing data, we choose  <b><em></em>Random Forest</em></b>  as classifier,and generate a virtual raster layer containing all the raster layers for training.</li>											
 								<li><b>Probability Map</b><br>
-								To describe the probability of landslide occurrence and create a probability map,we need to convert classification confidence into class probability by using the raster calculator,the input is as follows:
+								To describe the probability of landslide occurrence and create a probability map, we need to convert classification confidence into class probability by using the raster calculator,the input is as follows:
 								<br><b>("classification@1 "=2)*"confidence@1 "+ ("classification@1 "=1)*(100-"confidence@1 ")</b><br>
 								Thus,we obtain the derived probability map from the training result.	   
 							</ol>
@@ -570,8 +570,8 @@
 							</header>
 							<ol>
 								<li><b>Data preprocessing</b><br>
-									For exposure assessment,we use the worldpop raster data,which is a spatial raster dataset with the estimated total number of people per grid-cell.
-									We adopted the same processing workflow as in the data preprocessing stage.First reproject the population raster to WGS 84/ UTM Zone 32N,EPSG:32632 to maintain consistency of the CRS between datasets.Then clip the population raster layer using the mask vector of group 7,to obtain the population raster for exposure assessment.
+									For exposure assessment,we use the <b>worldpop raster data</b>, which is a spatial raster dataset with the estimated total number of people per grid-cell.
+									We adopted the same processing workflow as in the data preprocessing stage. First reproject the population raster to <b> WGS 84/ UTM Zone 32N,EPSG:32632</b> to maintain consistency of the CRS between datasets.Then clip the population raster layer using the mask vector of group 7,to obtain the population raster for exposure assessment.
 									</li>											
 								<li><b>Ranking the Degree</b><br>
 									For ranking the degree of exposure,we need to reclassify the susceptibility raster map into 4 classes
@@ -628,7 +628,7 @@
 									</div>		
 
 								<li><b>Analysis with csv</b><br>
-									To compute the population counts in each susceptibility class, we use the tool Processing > Raster Analysis > Raster layer zonal statistics. Set the input layer to the clipped population raster dataset and the zones layer to the resampled susceptibility raster map. Finally, plot a pie chart showing the percentage of the population in each susceptibility class.	</li>	
+									To compute the population counts in each susceptibility class, we use the tool <b><em>Processing > Raster Analysis > Raster layer zonal statistics</em></b>. Set the input layer to the clipped population raster dataset and the zones layer to the resampled susceptibility raster map. Finally, plot a pie chart showing the percentage of the population in each susceptibility class.	</li>	
 							</ol>
 
 							<div class="row">
@@ -637,7 +637,7 @@
 										<ul><li><h4>Alpine Pastures</h4></li></ul>
 									</header>
 									<ol>
-										<li>Considering the characteristic of fewer buildings in the study area and the potential hazards posed by landslides, we chose the category of alpine pastures for the exposure assessment.(alpine pasture data source:<a href="https://www.geoportale.regione.lombardia.it/metadati?p_p_id=detailSheetMetadata_WAR_gptmetadataportlet&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_detailSheetMetadata_WAR_gptmetadataportlet_identifier=r_lombar%3Ad5506bba-413d-41da-a082-0e87eee78afb&_jsfBridgeRedirect=true#">Geoportale della Lombardia</a>).</li> 
+										<li>Considering the characteristic of fewer buildings in the study area and the potential hazards posed by landslides, we chose the category of <b>Alpine Aastures</b> for the exposure assessment.<b>(Alpine Pasture data source:<a href="https://www.geoportale.regione.lombardia.it/metadati?p_p_id=detailSheetMetadata_WAR_gptmetadataportlet&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_detailSheetMetadata_WAR_gptmetadataportlet_identifier=r_lombar%3Ad5506bba-413d-41da-a082-0e87eee78afb&_jsfBridgeRedirect=true#">Geoportale della Lombardia</a>)</b>.</li> 
 										<li> There are four alpine pastures in the study area: Alpe Meden, Alpe Rhon con Campondola e Campo, Alpe Piano-Ortiche con Aiada, and Alpe Piano dei Cavalli con Malgina e Combolo. We rasterized these areas using the DTM of the study area as the content. Then, using a method similar to processing population data, we performed calculations using the reclassified landslide susceptibility map. Finally, we obtained the exposure assessment for the alpine pasture characteristic.
 										</li>
 									</ol>
