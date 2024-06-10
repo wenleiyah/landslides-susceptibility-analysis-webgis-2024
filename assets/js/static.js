@@ -15,8 +15,18 @@ document.addEventListener('DOMContentLoaded', (event) => {
             }
         });
     });
+
+    showDataset('dataset-80-20');
     
 });
+
+// document.querySelectorAll('.clickable').forEach(button => {
+//     button.addEventListener('click', function(event) {
+//         event.preventDefault(); 
+//         this.classList.toggle('clicked');
+//     });
+// });
+
 
 document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('.clickable').forEach(button => {
@@ -47,5 +57,18 @@ document.addEventListener('DOMContentLoaded', function() {
             
             this.classList.add('clicked');
         });
+    });
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    // 获取所有的 img 元素
+    const images = document.querySelectorAll('.image-link img');
+    
+    images.forEach(img => {
+        const src = img.getAttribute('src'); // 获取 img 的 src 属性
+        const link = img.closest('a'); // 找到最近的包含 img 的 a 标签
+        if (link) {
+            link.setAttribute('href', src); // 将 a 标签的 href 属性设置为 img 的 src 属性
+        }
     });
 });
