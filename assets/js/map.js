@@ -31,13 +31,24 @@ let stadiaWatercolor = new Tile({
 
 // Add the bing base map
 var BING_MAPS_KEY = "AnIE_qaoODema2iIcuoFcJVPb4rWCED2dvA1OHQZPCC0j11unnSm2-o2lWPbWid_";
+//var BING_MAPS_KEY = "AqbDxABFot3cmpxfshRqLmg8UTuPv_bg69Ej3d5AkGmjaJy_w5eFSSbOzoHeN2_H";
 var bingRoads = new Tile({
-    title: 'Bing Maps',
+    title: 'Bing Maps—Roads',
     type: 'base',
     visible: false,
     source: new BingMaps({
         key: BING_MAPS_KEY,
         imagerySet: 'Road'
+    })
+
+});
+var bingAerial = new Tile({
+    title: 'Bing Maps—Aerial',
+    type: 'base',
+    visible: false,
+    source: new BingMaps({
+        key: BING_MAPS_KEY,
+        imagerySet: 'Aerial'
     })
 });
 
@@ -226,7 +237,7 @@ var LS_NLZ_merged = new Image({
 
 let basemapLayers = new Group({
     title: "Base Maps",
-    layers: [osm,stadiaWatercolor,bingRoads]
+    layers: [osm,stadiaWatercolor,bingRoads,bingAerial]
 });
 
 
@@ -273,14 +284,13 @@ let map = new Map({
 
 // Add the map controls:
 
-map.addControl(new ScaleLine()); 
-//Controls can be added using the addControl() map function
+map.addControl(new ScaleLine()); //Controls can be added using the addControl() map function
 map.addControl(new FullScreen());
 map.addControl(
     new MousePosition({
         coordinateFormat: createStringXY(4),
         projection: 'EPSG:4326',
-        className: 'coordinate',
+        className: 'custom-control',
         placeholder: '0.0000, 0.0000'
     })
 );
@@ -369,10 +379,9 @@ closer.onclick = function () {
 
 // Handle right click for hiding pop-up
 map.getViewport().addEventListener('contextmenu', function (event) {
-    event.preventDefault(); 
-    popup.setPosition(undefined); 
+    event.preventDefault(); // 阻止默认的右键菜单
+    popup.setPosition(undefined); // 隐藏弹出窗口
 });
-
 // Adding map event for pointermove
 map.on('pointermove', function (event) {
     var pixel = map.getEventPixel(event.originalEvent);
