@@ -14,7 +14,8 @@
     "bootstrap": "5.3.3",
     "glob": "10.3.10",
     "ol": "8.2.0",
-    "ol-layerswitcher": "4.1.1"
+    "ol-layerswitcher": "4.1.1",
+    "vite-plugin-html": "^3.2.2"
   },
   "devDependencies": {
     "@babel/core": "^7.24.7",
