@@ -269,6 +269,10 @@ em,i {
 		box-sizing: border-box;
 		align-items: stretch;
 	}
+	
+		.row.hidden {
+			display: none;
+		}
 
 		.row > * {
 			box-sizing: border-box;
@@ -1865,7 +1869,6 @@ em,i {
 	}
 
 		.image:before {
-			background: url("images/overlay.png");
 			content: '';
 			height: 100%;
 			left: 0;
@@ -2170,7 +2173,7 @@ em,i {
 		font-size: 0.8em;
 		font-weight: 900;
 		letter-spacing: 2px;
-		min-width: 18em;
+		/* min-width: 18em; */
 		padding: 0 0.75em;
 		line-height: 3.75em;
 		text-align: center;
@@ -2207,20 +2210,6 @@ em,i {
 				border-color: #96dad1 !important;
 			}
 			
-			
-		input[type="button"].head,
-		input[type="submit"].head,
-		input[type="reset"].head,
-		button.head,
-		.button.head {
-			background: #3f6e47;
-			border-color: #3f6e47;
-			color: #fff !important;
-			margin-bottom: 100px;
-			margin-top: 200px;
-		}
-
-
 		input[type="button"].fit,
 		input[type="submit"].fit,
 		input[type="reset"].fit,
@@ -2240,7 +2229,6 @@ em,i {
 			padding: 0.5em 0;
 		}
 
-		
 
 /* Wrapper */
 
@@ -2251,10 +2239,11 @@ em,i {
 
 		.wrapper.style1 {
 			padding: 0;
+			text-align: center;
 		}
 
 		.wrapper.style2 {
-			background-color: #83d3c9;
+			background-color: #3f6e47;
 			background-image: url("images/light-bl.svg"), url("images/light-br.svg");
 			background-position: bottom left, bottom right;
 			background-repeat: no-repeat, no-repeat;
@@ -2288,7 +2277,7 @@ em,i {
 					border-color: inherit !important;
 					color: #fff !important;
 				}
-
+	
 		.wrapper.style3 {
 			background: #fff;
 			color: inherit;
@@ -2343,7 +2332,7 @@ em,i {
 	}
 
 	#header {
-		background: #fff;
+		background: rgba(255, 255, 255, 1);
 		box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.075);
 		color: inherit;
 		cursor: default;
@@ -2587,7 +2576,7 @@ em,i {
 	#banner {
 		color: #fff;
 		cursor: default;
-		padding: 6em 0;
+		padding: 2.5em 0;
 		text-align: center;
 	}
 
@@ -2606,6 +2595,7 @@ em,i {
 			opacity: 0;
 			padding: 3em;
 			text-align: center;
+			margin-top: 100px;
 		}
 
 			#banner .inner header {
@@ -2647,7 +2637,7 @@ em,i {
 /* Main */
 
 	#main {
-		background-image: url("images/dark-tl.svg"), url("images/dark-tr.svg"), url("images/dark-bl.svg"), url("images/dark-br.svg");
+		/* background-image: url("images/dark-tl.svg"), url("images/dark-tr.svg"), url("images/dark-bl.svg"), url("images/dark-br.svg"); */
 		background-position: top left, top right, bottom left, bottom right;
 		background-repeat: no-repeat;
 		background-size: 25em;
@@ -2677,12 +2667,12 @@ em,i {
 /* CTA */
 
 	#cta {
-		background-attachment: scroll, scroll, scroll, fixed;
+		background-attachment: /*scroll, scroll,*/ scroll, fixed;
 		background-color: #645862;
-		background-image: url("images/light-tl.svg"), url("images/light-tr.svg"), url("images/overlay.png"), url("../../images/valley.jpg");
-		background-position: top left, top right, top left, bottom center;
-		background-repeat: no-repeat, no-repeat, repeat, no-repeat;
-		background-size: 25em, 25em, auto, cover;
+		background-image: /*url("images/light-tl.svg"), url("images/light-tr.svg"),*/ url("images/overlay.png"), url("../../images/valley.jpg");
+		background-position: /*top left, top right, */top left, bottom center;
+		background-repeat: /*no-repeat, no-repeat,*/ repeat, no-repeat;
+		background-size: /*25em, 25em,*/ auto, cover;
 		color: #fff;
 		padding: 5em;
 		text-align: center;
@@ -2695,9 +2685,9 @@ em,i {
 /* Footer */
 
 	#footer {
-		background: #E8EEF4;
-		color: #7c8081;
-		padding: 5em 5em 10em 5em;
+		/* background: #E8EEF4; */
+		/* color: #7c8081; */
+		padding: 1em 5em 3em 5em;
 		text-align: center;
 	}
 
@@ -2875,7 +2865,7 @@ em,i {
 		/* CTA */
 
 			#cta {
-				background-size: 15em, 15em, auto, cover;
+				background-size: auto, cover;
 				padding: 3em;
 			}
 
@@ -3310,7 +3300,11 @@ em,i {
 					background-size: 10em;
 					padding: 2.25em 1.5em;
 				}
-
+				
+				.wrapper.style2-2 {
+					background-size: 10em;
+					padding: 2.25em 1.5em;
+				}
 				.wrapper.style4 {
 					background-size: 10em;
 					padding: 1.5em 1.5em 3em 1.5em;
@@ -3359,7 +3353,7 @@ em,i {
 		/* CTA */
 
 			#cta {
-				background-size: 10em, 10em, auto, cover;
+				background-size:auto, cover;
 				padding: 3em 1.5em;
 			}
 

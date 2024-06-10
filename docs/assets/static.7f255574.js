@@ -1,1 +1,0 @@
-document.addEventListener("DOMContentLoaded",s=>{document.querySelectorAll(".toggle-title").forEach(e=>{const n=e.nextElementSibling,t=e.querySelector(".arrow");e.addEventListener("click",()=>{n.classList.toggle("hidden"),e.classList.toggle("active"),e.classList.contains("active")?t.innerHTML="&#9207;":t.innerHTML="&#9205;"})})});
