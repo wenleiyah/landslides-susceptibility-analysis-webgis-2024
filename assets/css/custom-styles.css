@@ -346,6 +346,11 @@ button.head,
     height: 200px; 
 }
 
+#PieChart2 {
+    width: 200px; 
+    height: 200px; 
+}
+
 .chart-container {
     position: relative;
     width: 400px; 

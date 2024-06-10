@@ -15,7 +15,6 @@
 		<link rel="stylesheet" href="../assets/css/custom-styles.css" />
 	    <!-- Modules are imported normally -->
 		<script defer src="../assets/js/static.js"></script>
-		<script type="module" src="../assets/js/map.js"></script>
 
 		<!-- MathJax -->
 		<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
@@ -69,29 +68,24 @@
 									<thead>
 										<tr>
 											<th>Zone</th>
-											<th>Area / \(m^{2} \)</th>
 											<th>Population Counts</th>
 										</tr>
 									</thead>
 									<tbody>
 										<tr>
 											<th style="background-color: rgba(124, 128, 129, 0.2);">low</th>
-											<th>9604448.94</th>
 											<th>1440</th>
 										</tr>
 										<tr>
 											<th style="background-color: rgba(124, 128, 129, 0.2);">moderate</th>
-											<th>2827976.63</th>
 											<th>424</th>
 										</tr>
 										<tr>
 											<th style="background-color: rgba(124, 128, 129, 0.2);">high</th>
-											<th>12525802.16</th>
 											<th>1878</th>
 										</tr>
 										<tr>
 											<th style="background-color: rgba(124, 128, 129, 0.2);">very high</th>
-											<th>41959436.32</th>
 											<th>6291</th>
 										</tr>
 									</tbody>
@@ -107,6 +101,61 @@
 													labels: ['low', 'moderate', 'high','very high'],
 													datasets: [{
 														data: [1440, 424, 1878,6291],
+														backgroundColor: ['#1a9641', '#a6d96a', '#ffffc0', '#fdae61',]
+													}]
+												},
+												options: {
+													responsive: true,
+													maintainAspectRatio: false,
+													aspectRatio:0.5,
+													plugins:{legend:{labels:{color:'white'}}}
+												}
+											});
+										</script>
+									</div>
+								</div>
+							</section>
+
+							<section class="col-12 col-12-narrower toggle-body">
+								<li><h4>Alpine pastures</h4>	</li>		
+								<p>We compute the Alpine pastures area in our area with 4 landslide susceptibility classes, we rasterized the vector data from geoportal of lombardy and got the result:</p>
+								<table class="default">
+									<thead>
+										<tr>
+											<th>Zone</th>
+											<th>Alpine Pastures Area / \(m^{2} \)</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<th style="background-color: rgba(124, 128, 129, 0.2);">low</th>
+											<th>112524</th>
+										</tr>
+										<tr>
+											<th style="background-color: rgba(124, 128, 129, 0.2);">moderate</th>
+											<th>79581</th>
+										</tr>
+										<tr>
+											<th style="background-color: rgba(124, 128, 129, 0.2);">high</th>
+											<th>225332</th>
+										</tr>
+										<tr>
+											<th style="background-color: rgba(124, 128, 129, 0.2);">very high</th>
+											<th>448743</th>
+										</tr>
+									</tbody>
+								</table>
+								<div style="display: flex;justify-content: center;align-items: center;">
+									<div class="chart-container">
+										<canvas id="PieChart2"></canvas>
+										<script>
+											var ctx = document.getElementById('PieChart2').getContext('2d');
+											var myPieChart = new Chart(ctx, {
+												type: 'pie',
+												data: {
+													labels: ['low', 'moderate', 'high','very high'],
+													datasets: [{
+														data: [112524, 79581, 225332, 448743],
 														backgroundColor: ['#1a9641', '#a6d96a', '#ffffc0', '#fdae61',]
 													}]
 												},
