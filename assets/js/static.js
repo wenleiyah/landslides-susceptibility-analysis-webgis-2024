@@ -52,25 +52,15 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// document.addEventListener('DOMContentLoaded', () => {
-//     // 获取所有的 img 元素
-//     const images = document.querySelectorAll('.image-link img');
-    
-//     images.forEach(img => {
-//         const src = img.getAttribute('src'); // 获取 img 的 src 属性
-//         const link = img.closest('a'); // 找到最近的包含 img 的 a 标签
-//         if (link) {
-//             link.setAttribute('href', src); // 将 a 标签的 href 属性设置为 img 的 src 属性
-//         }
-//     });
-// });
-
 document.addEventListener('DOMContentLoaded', () => {
-    const base = '/webgis-class-2024-g7/';
-
-    document.querySelectorAll('a[href^="../"]').forEach(anchor => {
-        const originalHref = anchor.getAttribute('href');
-        const newHref = base + originalHref.substring(3); // remove "../" and prepend base
-        anchor.setAttribute('href', newHref);
+    // 获取所有的 img 元素
+    const images = document.querySelectorAll('.image img');
+    
+    images.forEach(img => {
+        const src = img.getAttribute('src'); // 获取 img 的 src 属性
+        const link = img.closest('a'); // 找到最近的包含 img 的 a 标签
+        if (link) {
+            link.setAttribute('href', src); // 将 a 标签的 href 属性设置为 img 的 src 属性
+        }
     });
 });
