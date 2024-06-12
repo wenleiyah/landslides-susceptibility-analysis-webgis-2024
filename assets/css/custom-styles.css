@@ -350,3 +350,59 @@ button.head,
 #dataset-80-20 {
     display: flex;
 }
+
+
+div.special2, article.special2 {
+    text-align: center;
+}
+
+header.special2 {
+    margin-bottom: 5em;
+    padding-top: 7em;
+    position: relative;
+    text-align: center;
+}
+
+    header.special2:before, header.special2:after {
+        border-bottom: solid 1.5px;
+        border-top: solid 1.5px;
+        content: '';
+        height: 7px;
+        opacity: 0.1;
+        position: absolute;
+        top: 1.75em;
+        width: 50%;
+        margin-top: 30px;
+    }
+
+    header.special2:before {
+        left: 0;
+    }
+
+    header.special2:after {
+        left: 50%;
+    }
+
+    header.special2 h2 {
+        margin-bottom: 1em;
+    }
+
+    header.special2 h2 + p {
+        margin-bottom: 0;
+        padding-top: 1.5em;
+    }
+
+    header.special2 .icon {
+        cursor: default;
+        height: 7em;
+        left: 0;
+        position: absolute;
+        text-align: center;
+        top: 1em;
+        width: 100%;
+    }
+
+        header.special2 .icon:before {
+            font-size: 3.5em;
+            opacity: 0.35;
+        }
