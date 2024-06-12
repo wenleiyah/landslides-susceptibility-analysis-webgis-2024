@@ -290,7 +290,7 @@ map.addControl(
     new MousePosition({
         coordinateFormat: createStringXY(4),
         projection: 'EPSG:4326',
-        className: 'custom-control',
+        className: 'coordinate',
         placeholder: '0.0000, 0.0000'
     })
 );
