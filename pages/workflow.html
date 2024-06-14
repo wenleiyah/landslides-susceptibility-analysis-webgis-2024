@@ -463,6 +463,10 @@
 									<li>After determining how many points are needed for the training data,we need to select points within the polygons based on the training and validation set ratios while ensuring a 1:1 point ratio according to the 'Hazard' value.Thus,we use the Select Features by Value tool and select according to the <b>'Hazard' and 'Train_Test'</b> field. After the selection,use <b><em>Processing-Vector Creation-Random Points in layer bounds.</em></b> Use the merged Landslide Inventory and NLZ layer and select selected feature only.
 									</li>
 									<li>Merge separately the training and testing layers into two point layers trainingPoints and testingPoints.</li>
+									<li>Sampling final Train_test<br>To obtain training values for our dataset,we need to sample the environmental factors using the training and testing point layers.<br>
+										We use the <b><em>Point Sampling Tool plugin</em></b>, selecting the points layers and all the environmental layers to perform sampling, and ensure the fields' name is consistent.
+										After sampling, we obtain two layers:trainingPointsSampled and testingPointsSampled.
+										</li>
 								</ol>
 							</div>
 
@@ -519,7 +523,7 @@
 							</footer>
 						</section>
 					</div>
-						
+								
 				</div>
 
 				<!-- Step 2 - Susceptibility Mapping Process -->
