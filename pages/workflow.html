@@ -137,9 +137,9 @@
 							</div>
 							<div class="hidden indented-paragraph">
 								<p>The data related to distance, including road, river network and distance to geological faults have important impacts  on landslides, which needs to be taken into consideration when predicting landslides.</p>
-								<li><strong>Roads</strong><br>obtained from OpenStreetMap as vector data, are analyzed by creating buffer zones at distances of 50, 100, 200, 500 meters, and beyond. These buffer zones help in understanding the influence of roads on nearby slopes.</li> 
-								<li><strong>Rivers</strong><br>mapped as vector data from OpenStreetMap, are analyzed by creating buffer zones at distances of 50, 100, 200, 500 meters, and more. These buffer zones help in understanding the impact of rivers on slopes since rivers can cause erosion at the base of slopes, which can eventually lead to landslides.</li> 
-								<li><strong>Faults</strong><br>can create zones of weakness in the earth's crust, making them more susceptible to landslides. We use the geodetic faults data from GeoPortale Lombardia, which are analyzed by creating buffer zones at distances of 50, 100, 200, 500 meters, and more. These buffer zones help in evaluating the impact of faults on surrounding areas.</li> 
+								<li><strong>Roads</strong><br>obtained from OpenStreetMap as vector data, are analyzed by creating buffer zones at distances of 50, 100, 250, 500 meters, and beyond. These buffer zones help in understanding the influence of roads on nearby slopes.</li> 
+								<li><strong>Rivers</strong><br>mapped as vector data from OpenStreetMap, are analyzed by creating buffer zones at distances of 50, 100, 250, 500 meters, and more. These buffer zones help in understanding the impact of rivers on slopes since rivers can cause erosion at the base of slopes, which can eventually lead to landslides.</li> 
+								<li><strong>Faults</strong><br>can create zones of weakness in the earth's crust, making them more susceptible to landslides. We use the geodetic faults data from GeoPortale Lombardia, which are analyzed by creating buffer zones at distances of 50, 100, 250, 500 meters, and more. These buffer zones help in evaluating the impact of faults on surrounding areas.</li> 
 							</div>
 						</div>
 					</div>
@@ -325,7 +325,7 @@
 							<div>
 								<ol><b>To obtain the NLZ layer, we follow these three steps</b>
 									<li>We use the raster calculator on the DTM layer to compute <em><b>"slope@1" &lt; 20 OR "slope@1" > 70 </b> </em>. In the resulting raster layer, No Landslide Zones correspond to pixels with a value of 1.</li>
-									<li>Use the <b><em> r.null </em></b> to remove null value in the resulting raster layer,and use the <b><em>Processing-GDAL-Raster analysis-Sieve</em></b> tool to filter the raster,in order to remove the small patches in the resulting raster.We tried three different filter thresholds: 10, 30, and 50.For our study area, a threshold of 30 works best.</li>
+									<li>Use the <b><em> r.null </em></b> to remove null value in the resulting raster layer,and use the <b><em>Processing-GDAL-Raster analysis-Sieve</em></b> tool to filter the raster,in order to remove the small patches in the resulting raster.We tried three different filter thresholds: 10, 30, 50 and 70. For our study area, a threshold of 30 works best.</li>
 									<li>Vectorize the resulting raster to obtain the polygons of NLZ. To achieve this ,we use the <b><em>Processing-GRASS-Raster-r.to.vect</em></b> tool, set the raster values as categories.</li>
 								</ol>
 							</div>
