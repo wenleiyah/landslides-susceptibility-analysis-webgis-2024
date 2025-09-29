@@ -4,10 +4,14 @@ This repository contains the **Landslide Susceptibility Analysis** lab project d
 The focus of the project is twofold: the **analytical workflow** for producing landslide susceptibility maps and the **deployment of an interactive WebGIS**.  
 
 The workflow included:
-- preprocessing of geospatial datasets (DEM, geology, land use, hydrology, population, etc.),  
-- derivation of conditioning factors (slope, aspect, NDVI, distance to rivers and roads, etc.),  
-- susceptibility assessment and reclassification,  
-- and the integration of results into a WebGIS for visualization and communication.  
+- collection and harmonization of input datasets (DUSAF, DTM, NDVI, distance-to-roads/rivers/faults, landslide inventory);  
+- preprocessing (reprojection, clipping, resampling, rasterization) to a common CRS (EPSG:32632), 5 m resolution, and study-area extent;  
+- derivation of terrain and environmental factors (slope, aspect, plan and profile curvature) and definition of No-Landslide Zones (NLZ);  
+- preparation of balanced training/testing datasets (70/30 and 80/20 splits, 1k and 4k samples) through random selection and point sampling;  
+- susceptibility modeling using Random Forest (dzetsaka) with probability map generation;  
+- exposure assessment integrating reclassified susceptibility with WorldPop population and Alpine Pastures data;  
+- deployment of an interactive WebGIS (OSM/Stadia basemaps, WMS services, popup queries).  
+
 
 **Note:** The original map layers served via the university GeoServer have been removed after the course ended.  
 The WebGIS interface is still accessible online, but layers will not render unless new data sources are configured locally.
