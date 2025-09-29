@@ -1,7 +1,16 @@
-# Landslide Susceptibility Analysis WebGIS (2024)
+# GIS - Landslide Susceptibility Analysis 2023-2024
 
-This repository contains the **Landslide Susceptibility Analysis WebGIS** project developed for the GIS course (2024).  
-It provides an interactive web application to visualize, analyze, and communicate landslide susceptibility maps and related geospatial layers.
+This repository contains the **Landslide Susceptibility Analysis** lab project developed for the GIS course a.a. 2023/2024.  
+The focus of the project is twofold: the **analytical workflow** for producing landslide susceptibility maps and the **deployment of an interactive WebGIS**.  
+
+The workflow included:
+- preprocessing of geospatial datasets (DEM, geology, land use, hydrology, population, etc.),  
+- derivation of conditioning factors (slope, aspect, NDVI, distance to rivers and roads, etc.),  
+- susceptibility assessment and reclassification,  
+- and the integration of results into a WebGIS for visualization and communication.  
+
+**Note:** The original map layers served via the university GeoServer have been removed after the course ended.  
+The WebGIS interface is still accessible online, but layers will not render unless new data sources are configured locally.
 
 > **Live demo (GitHub Pages):**  
 > [https://wenleiyah.github.io/landslides-susceptibility-analysis-webgis-2024/](https://wenleiyah.github.io/landslides-susceptibility-analysis-webgis-2024/)
@@ -51,7 +60,7 @@ It provides an interactive web application to visualize, analyze, and communicat
    ```bash
    npm run preview
    ```
-   Opens a local server (default `http://localhost:4173/`) to check the final build.
+   Opens a local server (default `http://localhost:5173/`) to check the final build.
 
 3. **Deploy to GitHub Pages**
    - Ensure that `vite.config.js` contains the correct base path:
@@ -79,8 +88,8 @@ Contributions, issues, and feature requests are welcome.
 
 ---
 
-## Authors
+## Group Members
+- [Wenlei Yang](https://github.com/wenleiyah)  
+- [Xinmeng Zhang](https://github.com/eas510)  
 
-@wenleiyah
-@eas510
 Politecnico di Milano
