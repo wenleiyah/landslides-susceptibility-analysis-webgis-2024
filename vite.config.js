@@ -57,7 +57,7 @@ export default defineConfig({
 
     // Change to the name of your repository
     // According to https://vitejs.dev/guide/static-deploy.html 
-    base: '/webgis-class-2024-g7/', 
+    base: '/landslides-susceptibility-analysis-webgis-2024/', 
 
     publicDir: "public",
 
@@ -95,7 +95,7 @@ export default defineConfig({
             minify: true,
             inject: {
                 injectData: {
-                    base: '/webgis-class-2024-g7/'
+                    base: '/landslides-susceptibility-analysis-webgis-2024/'
                 }
             }
         })
