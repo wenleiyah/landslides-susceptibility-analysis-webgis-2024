@@ -94,6 +94,6 @@ Contributions, issues, and feature requests are welcome.
 
 ## Group Members
 - [Wenlei Yang](https://github.com/wenleiyah)  
-- [Xinmeng Zhang](https://github.com/eas510)  
+- [Xinmeng Wang](https://github.com/eas510)  
 
 Politecnico di Milano
